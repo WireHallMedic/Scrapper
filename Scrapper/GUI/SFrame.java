@@ -5,6 +5,7 @@ import javax.swing.Timer;
 import java.awt.*;
 import java.awt.event.*;
 import Scrapper.Engine.*;
+import Scrapper.Actor.*;
 
 public class SFrame extends JFrame implements GUIConstants, ActionListener, KeyListener
 {
@@ -63,8 +64,9 @@ public class SFrame extends JFrame implements GUIConstants, ActionListener, KeyL
    public void keyTyped(KeyEvent ke){}
    public void keyPressed(KeyEvent ke)
    {
-      int newX = SEngine.getPlayer().getX();
-      int newY = SEngine.getPlayer().getY();
+      SActor player = SEngine.getPlayer();
+      int newX = player.getX();
+      int newY = player.getY();
       switch(ke.getKeyCode())
       {
          case KeyEvent.VK_DOWN    :  newY++; break;
@@ -72,7 +74,10 @@ public class SFrame extends JFrame implements GUIConstants, ActionListener, KeyL
          case KeyEvent.VK_RIGHT   :  newX++; break;
          case KeyEvent.VK_LEFT    :  newX--; break;
       }
-      SEngine.getPlayer().setX(newX);
-      SEngine.getPlayer().setY(newY);
+      if(SEngine.getCurZone().canStep(player, newX, newY))
+      {
+         player.setX(newX);
+         player.setY(newY);
+      }
    }
 }
