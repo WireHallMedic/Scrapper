@@ -27,6 +27,14 @@ public class MapTile implements MapConstants, GUIConstants
       bgColor = DEFAULT_BACKGROUND_COLOR;
    }   
    
+   // copy constructor
+   public MapTile(MapTile that)
+   {
+      this.tileBase = that.getTileBase();
+      this.fgColor = that.getFGColor();
+      this.bgColor = that.getBGColor();
+   }
+   
    // TileBase calls
    public boolean isLowPassable(){return tileBase.lowPassable;}
    public boolean isHighPassable(){return tileBase.highPassable;}

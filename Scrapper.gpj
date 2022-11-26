@@ -1,5 +1,5 @@
 !1514;s
-A
+J
 SAU0JGRASP_MAIN_BOUNDS=%<CONTROL_SHELL_BOUNDS>\012PATH+=%<JGRASP_PATHS>%;\012PATH=+%;%<JGRASP_C_PATHS>\012CYGWIN=nodosfilewarning\012GCC_COLORS=\012-Run\012ADD_EXE_PATH==Y\012
 SCU0JGRASP_MAIN_BOUNDS=%<CONTROL_SHELL_BOUNDS>\012PATH+=%<JGRASP_PATHS>%;\012PATH=+%;%<JGRASP_C_PATHS>\012CYGWIN=nodosfilewarning\012GCC_COLORS=\012-Run\012ADD_EXE_PATH==Y\012
 S+U0JGRASP_MAIN_BOUNDS=%<CONTROL_SHELL_BOUNDS>\012PATH+=%<JGRASP_PATHS>%;\012PATH=+%;%<JGRASP_C_PATHS>\012CYGWIN=nodosfilewarning\012GCC_COLORS=\012-Run\012ADD_EXE_PATH==Y\012
@@ -12,7 +12,7 @@ s#i0
 s#k0
 s#j0
 s#l0
-!2128;g
+!2164;g
 %\011%uWidlerSuite%sMovementScriptStep.java
 %\011%uWidlerSuite%sUnboundTile.java
 %\011Scrapper%sGUI%sMainGamePanel.java
@@ -61,6 +61,7 @@ s#l0
 %\011%uWidlerSuite%sStraightLine.java
 %\011Scrapper%sGUI%sSFullPanel.java
 %\011%uWidlerSuite%sBorderBuilder.java
+%\011Scrapper%sMap%sToggleTile.java
 %\011%uWidlerSuite%sVoronoi.java
 %\011%uWidlerSuite%sSmoothCA.java
 %\011%uWidlerSuite%sSpiralSearch.java
@@ -71,7 +72,7 @@ s#l0
 %\011%uWidlerSuite%sShadowFoVHex.java
 %\011%uWidlerSuite%sWSTools.java
 %\011%uWidlerSuite%sHexLine.java
-!2128;f
+!2164;f
 %\011%uWidlerSuite%sMovementScriptStep.java
 %\011%uWidlerSuite%sUnboundTile.java
 %\011Scrapper%sGUI%sMainGamePanel.java
@@ -120,6 +121,7 @@ s#l0
 %\011%uWidlerSuite%sStraightLine.java
 %\011Scrapper%sGUI%sSFullPanel.java
 %\011%uWidlerSuite%sBorderBuilder.java
+%\011Scrapper%sMap%sToggleTile.java
 %\011%uWidlerSuite%sVoronoi.java
 %\011%uWidlerSuite%sSmoothCA.java
 %\011%uWidlerSuite%sSpiralSearch.java

@@ -38,6 +38,7 @@ public class SActor
       a.sprite.setXLoc(2);
       a.sprite.setYLoc(2);
       a.sprite.setIconIndex('@');
+      a.swims = true;
       return a;
    }
 }
