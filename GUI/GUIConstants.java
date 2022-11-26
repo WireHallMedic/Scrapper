@@ -21,6 +21,7 @@ public interface GUIConstants
    public static final int MAP_PANEL_CENTER = (MAP_PANEL_SIZE_TILES / 2);
    
    public static final Color DEFAULT_BACKGROUND_COLOR = Color.BLACK;
+   public static final Color DEFAULT_FOREGROUND_COLOR = Color.WHITE;
    // cyan split-complementary color scheme
    public static final Color PRIMARY_COLOR = new Color(0x00FFFF);       // cyan
    public static final Color SECONDARY_COLOR = new Color(0xFF8000);     // orange

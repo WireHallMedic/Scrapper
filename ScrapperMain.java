@@ -3,6 +3,7 @@ package Scrapper;
 import Scrapper.GUI.*;
 import Scrapper.Engine.*;
 import Scrapper.Actor.*;
+import java.util.logging.*;
 
 public class ScrapperMain
 {
@@ -13,8 +14,8 @@ public class ScrapperMain
       SFrame frame = new SFrame();
       if(TEST_VERSION)
       {
+         Logger.getGlobal().info("Running in test mode");
          SEngine.setPlayer(SActor.getMock());
       }
    }
-
 }

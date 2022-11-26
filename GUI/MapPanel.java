@@ -47,9 +47,13 @@ public class MapPanel extends RogueTilePanel implements GUIConstants
       {
          int cornerX = player.getX() - MAP_PANEL_CENTER;
          int cornerY = player.getY() - MAP_PANEL_CENTER;
+         MapTile tile;
          for(int x = 0; x < MAP_PANEL_SIZE_TILES; x++)
          for(int y = 0; y < MAP_PANEL_SIZE_TILES; y++)
-            setIcon(x, y, zone.getTile(x + cornerX, y + cornerY).iconIndex);
+         {
+            tile = zone.getTile(x + cornerX, y + cornerY);
+            setTile(x, y, tile.getTileBase().iconIndex, tile.getFGColor(), tile.getBGColor());
+         }
          setIcon(player.getX() - cornerX, player.getY() - cornerY, player.getIconIndex());
       }
    }

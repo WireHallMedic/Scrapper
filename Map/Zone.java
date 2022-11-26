@@ -1,39 +1,27 @@
 package Scrapper.Map;
 
-public class Zone implements MapConstants
+import Scrapper.GUI.*;
+
+public class Zone implements MapConstants, GUIConstants
 {
-   private TileBase[][] tile;
-	private TileBase oobTile;
+   private MapTile[][] tile;
+	private MapTile oobTile;
 
 
-	public TileBase getOobTile(){return oobTile;}
+	public MapTile getOobTile(){return oobTile;}
 
 
-	public void setOobTile(TileBase o){oobTile = o;}
+	public void setOobTile(MapTile o){oobTile = o;}
 
    public Zone(int width, int height)
    {
-      tile = new TileBase[width][height];
+      tile = new MapTile[width][height];
       for(int x = 0; x < width; x++)
       for(int y = 0; y < height; y++)
       {
-         tile[x][y] = TileBase.CLEAR;
+         tile[x][y] = new MapTile(TileBase.CLEAR);
       }
-      oobTile = TileBase.NULL;
-   }
-   
-   public static Zone getMock()
-   {
-      int size = 15;
-      Zone z = new Zone(size, size);
-      for(int i = 0; i < size; i++)
-      {
-         z.tile[i][0] = TileBase.HIGH_WALL;
-         z.tile[i][size - 1] = TileBase.HIGH_WALL;
-         z.tile[0][i] = TileBase.HIGH_WALL;
-         z.tile[size - 1][i] = TileBase.HIGH_WALL;
-      }
-      return z;
+      oobTile = new MapTile(TileBase.NULL);
    }
    
    public int width()
@@ -54,16 +42,34 @@ public class Zone implements MapConstants
              y < height();
    }
    
-   public void setTile(int x, int y, TileBase t)
+   public void setTile(int x, int y, MapTile t)
    {
       if(isInBounds(x, y))
          tile[x][y] = t;
    }
    
-   public TileBase getTile(int x, int y)
+   public MapTile getTile(int x, int y)
    {
       if(isInBounds(x, y))
          return tile[x][y];
       return oobTile;
+   }
+   
+   // testing method
+   public static Zone getMock()
+   {
+      int size = 20;
+      Zone z = new Zone(size, size);
+      for(int i = 0; i < size; i++)
+      {
+         z.tile[i][0] = new MapTile(TileBase.HIGH_WALL);
+         z.tile[i][size - 1] = new MapTile(TileBase.HIGH_WALL);
+         z.tile[0][i] = new MapTile(TileBase.HIGH_WALL);
+         z.tile[size - 1][i] = new MapTile(TileBase.HIGH_WALL);
+      }
+      for(int i = 0; i < TileBase.values().length; i++)
+         z.tile[i + 1][4] = new MapTile(TileBase.values()[i]);
+      z.tile[5][4].setFGColor(TERTIARY_COLOR);
+      return z;
    }
 }

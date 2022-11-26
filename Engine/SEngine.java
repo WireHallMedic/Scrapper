@@ -10,4 +10,5 @@ public class SEngine
    public static void setPlayer(SActor p){player = p;}
    
    public static SActor getPlayer(){return player;}
+   
 }
