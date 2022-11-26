@@ -35,6 +35,10 @@ public class MapTile implements MapConstants, GUIConstants
    
    public boolean canStep(SActor actor)
    {
+      if(actor.isFlying() && isHighPassable())
+         return true;
+      if(actor.isSwimming() && isLiquid())
+         return true;
       return isLowPassable();
    }
 }

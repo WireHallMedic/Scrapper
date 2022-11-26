@@ -1,5 +1,6 @@
 package Scrapper;
 
+import Scrapper.Map.*;
 import Scrapper.GUI.*;
 import Scrapper.Engine.*;
 import Scrapper.Actor.*;
@@ -16,6 +17,7 @@ public class ScrapperMain
       {
          Logger.getGlobal().info("Running in test mode");
          SEngine.setPlayer(SActor.getMock());
+         SEngine.setCurZone(Zone.getMock());
       }
    }
 }

@@ -8,22 +8,12 @@ import Scrapper.Engine.*;
 
 public class MapPanel extends RogueTilePanel implements GUIConstants
 {	
-   private Zone zone;
-
-
-	public Zone getZone(){return zone;}
-
-
-	public void setZone(Zone z){zone = z;}
-
-
    public MapPanel(int w, int h, TilePalette p)
    {
       super(w, h, p);
       setSizeMultiplier(DEFAULT_TILE_SIZE_MULTIPLIER);
       int sizePixels = MAP_PANEL_SIZE_TILES * DEFAULT_TILE_SIZE;
       setSize(sizePixels, sizePixels);
-      zone = Zone.getMock();
       setVisible(true);
    }
    
@@ -37,6 +27,7 @@ public class MapPanel extends RogueTilePanel implements GUIConstants
    public void update()
    {
       SActor player = SEngine.getPlayer();
+      Zone zone = SEngine.getCurZone();
       if(zone == null || player == null)
       {
          for(int x = 0; x < MAP_PANEL_SIZE_TILES; x++)
