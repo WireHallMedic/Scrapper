@@ -16,7 +16,9 @@ public class ScrapperMain
       if(TEST_VERSION)
       {
          Logger.getGlobal().info("Running in test mode");
-         SEngine.setPlayer(SActor.getMock());
+         SActor player = SActor.getMock();
+         SEngine.setPlayer(player);
+         SEngine.add(player);
          SEngine.setCurZone(Zone.getMock());
       }
    }

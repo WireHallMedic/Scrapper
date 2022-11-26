@@ -38,6 +38,7 @@ public class SActor
       a.sprite.setXLoc(2);
       a.sprite.setYLoc(2);
       a.sprite.setIconIndex('@');
+      a.sprite.setFGColor(GUIConstants.PRIMARY_COLOR.getRGB());
       a.swims = true;
       return a;
    }
