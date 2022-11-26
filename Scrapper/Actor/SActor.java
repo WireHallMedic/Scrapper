@@ -1,6 +1,7 @@
 package Scrapper.Actor;
 
 import WidlerSuite.*;
+import Scrapper.AI.*;
 import Scrapper.GUI.*;
 
 public class SActor
@@ -8,22 +9,27 @@ public class SActor
 	private UnboundTile sprite;
    private boolean flies;
    private boolean swims;
+   private BasicAI ai;
 
 
 	public UnboundTile getSprite(){return sprite;}
    public boolean isFlying(){return flies;}
    public boolean isSwimming(){return swims;}
+   public BasicAI getAI(){return ai;}
 
 	public void setSprite(UnboundTile s){sprite = s;}
    public void setFlying(boolean f){flies = f;}
    public void setSwimming(boolean s){swims = s;}
+   public void setAI(BasicAI newAI){ai = newAI;}
 
    public SActor()
    {
       sprite = new UnboundTile(TileManager.x2y2Palette);
       flies = false;
       swims = false;
+      ai = new BasicAI(this);
    }
+   
    
    // temporary
    public int getIconIndex(){return sprite.getIconIndex();}
