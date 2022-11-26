@@ -36,10 +36,10 @@ public class MapTile implements MapConstants, GUIConstants
    }
    
    // TileBase calls
-   public boolean isLowPassable(){return tileBase.lowPassable;}
-   public boolean isHighPassable(){return tileBase.highPassable;}
-   public boolean isLiquid(){return tileBase.liquid;}
-   public boolean isTransparent(){return tileBase.transparent;}
+   public boolean isLowPassable(){return getTileBase().lowPassable;}
+   public boolean isHighPassable(){return getTileBase().highPassable;}
+   public boolean isLiquid(){return getTileBase().liquid;}
+   public boolean isTransparent(){return getTileBase().transparent;}
    
    public boolean canStep(SActor actor)
    {
