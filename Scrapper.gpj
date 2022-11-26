@@ -12,7 +12,7 @@ s#i0
 s#k0
 s#j0
 s#l0
-!2164;g
+!2204;g
 %\011%uWidlerSuite%sMovementScriptStep.java
 %\011%uWidlerSuite%sUnboundTile.java
 %\011Scrapper%sGUI%sMainGamePanel.java
@@ -58,6 +58,7 @@ s#l0
 %\011Scrapper%sGUI%sMapBorderPanel.java
 %\011%uWidlerSuite%sAStar.java
 %\011%uWidlerSuite%sCoord.java
+%\011Scrapper%sMap%sMapTileFactory.java
 %\011%uWidlerSuite%sStraightLine.java
 %\011Scrapper%sGUI%sSFullPanel.java
 %\011%uWidlerSuite%sBorderBuilder.java
@@ -72,7 +73,7 @@ s#l0
 %\011%uWidlerSuite%sShadowFoVHex.java
 %\011%uWidlerSuite%sWSTools.java
 %\011%uWidlerSuite%sHexLine.java
-!2164;f
+!2204;f
 %\011%uWidlerSuite%sMovementScriptStep.java
 %\011%uWidlerSuite%sUnboundTile.java
 %\011Scrapper%sGUI%sMainGamePanel.java
@@ -118,6 +119,7 @@ s#l0
 %\011Scrapper%sGUI%sMapBorderPanel.java
 %\011%uWidlerSuite%sAStar.java
 %\011%uWidlerSuite%sCoord.java
+%\011Scrapper%sMap%sMapTileFactory.java
 %\011%uWidlerSuite%sStraightLine.java
 %\011Scrapper%sGUI%sSFullPanel.java
 %\011%uWidlerSuite%sBorderBuilder.java

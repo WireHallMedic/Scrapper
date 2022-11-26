@@ -6,6 +6,7 @@ import java.awt.*;
 import java.awt.event.*;
 import Scrapper.Engine.*;
 import Scrapper.Actor.*;
+import Scrapper.Map.*;
 
 public class SFrame extends JFrame implements GUIConstants, ActionListener, KeyListener
 {
@@ -78,6 +79,11 @@ public class SFrame extends JFrame implements GUIConstants, ActionListener, KeyL
       {
          player.setX(newX);
          player.setY(newY);
+      }
+      else if(SEngine.getCurZone().getTile(newX, newY) instanceof ToggleTile)
+      {
+         ToggleTile tog = (ToggleTile)SEngine.getCurZone().getTile(newX, newY);
+         tog.toggle();
       }
    }
 }
