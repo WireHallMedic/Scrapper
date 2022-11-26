@@ -39,7 +39,26 @@ public class SActor
       a.sprite.setYLoc(2);
       a.sprite.setIconIndex('@');
       a.sprite.setFGColor(GUIConstants.PRIMARY_COLOR.getRGB());
-      a.swims = true;
+      return a;
+   }
+   
+   public static SActor getMockEnemy()
+   {
+      SActor a = new SActor();
+      a.sprite.setXLoc(-2);
+      a.sprite.setYLoc(2);
+      a.sprite.setIconIndex('e');
+      a.sprite.setFGColor(GUIConstants.SECONDARY_COLOR.getRGB());
+      return a;
+   }
+   
+   public static SActor getMockEnemy2()
+   {
+      SActor a = new SActor();
+      a.sprite.setXLoc(2);
+      a.sprite.setYLoc(5);
+      a.sprite.setIconIndex('e');
+      a.sprite.setFGColor(GUIConstants.TERTIARY_COLOR.getRGB());
       return a;
    }
 }
