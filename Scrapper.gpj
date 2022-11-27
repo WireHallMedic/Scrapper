@@ -12,7 +12,7 @@ s#i0
 s#k0
 s#j0
 s#l0
-!2282;g
+!2315;g
 %\011%uWidlerSuite%sMovementScriptStep.java
 %\011%uWidlerSuite%sUnboundTile.java
 %\011Scrapper%sGUI%sMainGamePanel.java
@@ -48,6 +48,7 @@ s#l0
 %\011%uWidlerSuite%sLineIntersection.java
 %\011%uWidlerSuite%sTilePalette.java
 %\011Scrapper%sGUI%sSFrame.java
+%\011Scrapper%sAI%sPlayerAI.java
 %\011%uWidlerSuite%sDoubleDeck.java
 %\011%uWidlerSuite%sRoguePanel.java
 %\011%uWidlerSuite%sSquirrelRNG.java
@@ -75,7 +76,7 @@ s#l0
 %\011%uWidlerSuite%sWSTools.java
 %\011Scrapper%sAI%sBasicAI.java
 %\011%uWidlerSuite%sHexLine.java
-!2282;f
+!2315;f
 %\011%uWidlerSuite%sMovementScriptStep.java
 %\011%uWidlerSuite%sUnboundTile.java
 %\011Scrapper%sGUI%sMainGamePanel.java
@@ -111,6 +112,7 @@ s#l0
 %\011%uWidlerSuite%sLineIntersection.java
 %\011%uWidlerSuite%sTilePalette.java
 %\011Scrapper%sGUI%sSFrame.java
+%\011Scrapper%sAI%sPlayerAI.java
 %\011%uWidlerSuite%sDoubleDeck.java
 %\011%uWidlerSuite%sRoguePanel.java
 %\011%uWidlerSuite%sSquirrelRNG.java

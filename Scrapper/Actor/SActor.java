@@ -45,6 +45,7 @@ public class SActor
       a.sprite.setYLoc(2);
       a.sprite.setIconIndex('@');
       a.sprite.setFGColor(GUIConstants.PRIMARY_COLOR.getRGB());
+      a.setAI(new PlayerAI(a));
       return a;
    }
    

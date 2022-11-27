@@ -22,6 +22,9 @@ public class ScrapperMain
          SEngine.add(SActor.getMockEnemy());
          SEngine.add(SActor.getMockEnemy2());
          SEngine.setCurZone(Zone.getMock());
+         
+         SEngine engine = new SEngine();
+         engine.run();
       }
    }
 }

@@ -6,9 +6,11 @@ import java.awt.*;
 import java.awt.event.*;
 import Scrapper.Engine.*;
 import Scrapper.Actor.*;
+import Scrapper.Ability.*;
 import Scrapper.Map.*;
+import Scrapper.AI.*;
 
-public class SFrame extends JFrame implements GUIConstants, ActionListener, KeyListener
+public class SFrame extends JFrame implements GUIConstants, MapConstants, AbilityConstants, ActionListener, KeyListener
 {
    private SFullPanel fullPanel;
    private JPanel innerPanel;       // deal with draw area, not full frame
@@ -68,22 +70,25 @@ public class SFrame extends JFrame implements GUIConstants, ActionListener, KeyL
       SActor player = SEngine.getPlayer();
       int newX = player.getX();
       int newY = player.getY();
+      Direction dir = null;
       switch(ke.getKeyCode())
       {
-         case KeyEvent.VK_DOWN    :  newY++; break;
-         case KeyEvent.VK_UP      :  newY--; break;
-         case KeyEvent.VK_RIGHT   :  newX++; break;
-         case KeyEvent.VK_LEFT    :  newX--; break;
+         case KeyEvent.VK_DOWN    :  newY++; dir = Direction.SOUTH; break;
+         case KeyEvent.VK_UP      :  newY--; dir = Direction.NORTH; break;
+         case KeyEvent.VK_RIGHT   :  newX++; dir = Direction.EAST; break;
+         case KeyEvent.VK_LEFT    :  newX--; dir = Direction.WEST; break;
       }
       if(SEngine.getCurZone().canStep(player, newX, newY))
       {
-         player.setX(newX);
-         player.setY(newY);
+         BasicAI ai = player.getAI();
+         ai.setPendingDirection(dir);
+         ai.setPendingAction(Action.STEP);
       }
       else if(SEngine.getCurZone().getTile(newX, newY) instanceof ToggleTile)
       {
-         ToggleTile tog = (ToggleTile)SEngine.getCurZone().getTile(newX, newY);
-         tog.toggle();
+         BasicAI ai = player.getAI();
+         ai.setPendingDirection(dir);
+         ai.setPendingAction(Action.USE_ENVIRONMENT);
       }
    }
 }
