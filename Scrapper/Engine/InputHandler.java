@@ -31,10 +31,11 @@ public class InputHandler implements AbilityConstants, MapConstants
          case KeyEvent.VK_NUMPAD1 :  newY++; newX--; dir = Direction.SOUTHWEST; break;
          case KeyEvent.VK_NUMPAD3 :  newY++; newX++; dir = Direction.SOUTHEAST; break;
          case KeyEvent.VK_ESCAPE  :  cancelPlayerAction(true); break;
-         case KeyEvent.VK_U       :  ai.setPendingAction(Action.USE_ENVIRONMENT); break;
+         case KeyEvent.VK_U       :  setUseEnvironment(); break;
       }
-      // use environment
-      if(ai.getPendingAction() == Action.USE_ENVIRONMENT)
+      
+      // use environment follow-up
+      if(ai.getPendingAction() == Action.USE_ENVIRONMENT && dir != null)
       {
          if(SEngine.getCurZone().getTile(newX, newY) instanceof ToggleTile)
          {
@@ -79,4 +80,12 @@ public class InputHandler implements AbilityConstants, MapConstants
             InfoPanel.addMessage("Player action cancelled.");
       }
    }
+   
+   private static void setUseEnvironment()
+   {
+      BasicAI ai = SEngine.getPlayer().getAI();
+      ai.setPendingAction(Action.USE_ENVIRONMENT);
+      InfoPanel.addMessage("Choose a direction.");
+   }
+
 }

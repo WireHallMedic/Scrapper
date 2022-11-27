@@ -44,7 +44,7 @@ public class InfoPanel extends RogueTilePanel implements GUIConstants
    {
       for(int x = writeOriginX; x < columns() - 1; x++)
       for(int y = writeOriginY; y < rows() - 1; y++)
-         setIcon(x, y, ' ');
+         setTile(x, y, ' ', DEFAULT_FOREGROUND_COLOR, DEFAULT_BACKGROUND_COLOR);
    }
    
    private void postMessage()

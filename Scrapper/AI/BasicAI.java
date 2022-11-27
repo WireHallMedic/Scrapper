@@ -20,7 +20,6 @@ public class BasicAI implements AbilityConstants, MapConstants
 	public int getTurnEnergy(){return turnEnergy;}
 	public Action getPendingAction(){return pendingAction;}
 	public Direction getPendingDirection(){return pendingDirection;}
-	public Coord getPendingTarget(){return new Coord(pendingTarget);}
 
 
 	public void setSelf(SActor s){self = s;}
@@ -36,6 +35,16 @@ public class BasicAI implements AbilityConstants, MapConstants
       self = s;
       turnEnergy = AbilityConstants.NORMAL_SPEED;
       pendingAction = null;
+      pendingDirection = null;
+      pendingTarget = null;
+   }
+   
+   
+	public Coord getPendingTarget()
+   {
+      if(pendingTarget == null)
+         return null;
+      return new Coord(pendingTarget);
    }
    
    // turn energy methods
