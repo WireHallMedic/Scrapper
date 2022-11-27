@@ -1,9 +1,17 @@
 package Scrapper.GUI;
 
 import WidlerSuite.*;
+import java.awt.*;
 
 public class InfoPanel extends RogueTilePanel implements GUIConstants
 {
+   private static String newMessage = null;
+   
+   public static void addMessage(String msg){newMessage = msg;}
+   
+   private int writeOriginX = 0;
+   private int writeOriginY = 1;
+   
    public InfoPanel(int w, int h, TilePalette p)
    {
       super(w, h, p);
@@ -30,5 +38,29 @@ public class InfoPanel extends RogueTilePanel implements GUIConstants
       }
       setTile(SIDE_PANEL_WIDTH_TILES - 1, 0, getPalette().flatten(15, 11), PRIMARY_COLOR, DEFAULT_BACKGROUND_COLOR);
       setTile(SIDE_PANEL_WIDTH_TILES - 1, SIDE_PANEL_HEIGHT_TILES - 1, getPalette().flatten(9, 13), PRIMARY_COLOR, DEFAULT_BACKGROUND_COLOR);
+   }
+   
+   private void clearMessageBox()
+   {
+      for(int x = writeOriginX; x < columns() - 1; x++)
+      for(int y = writeOriginY; y < rows() - 1; y++)
+         setIcon(x, y, ' ');
+   }
+   
+   private void postMessage()
+   {
+      if(newMessage != null)
+      {
+         clearMessageBox();
+         write(writeOriginX, writeOriginY, newMessage, columns() - 1, rows() - 1);
+         newMessage = null;
+      }
+   }
+   
+   @Override
+   public void paint(Graphics g)
+   {
+      postMessage();
+      super.paint(g);
    }
 }
