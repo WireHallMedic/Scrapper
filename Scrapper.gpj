@@ -12,7 +12,7 @@ s#i0
 s#k0
 s#j0
 s#l0
-!2315;g
+!2356;g
 %\011%uWidlerSuite%sMovementScriptStep.java
 %\011%uWidlerSuite%sUnboundTile.java
 %\011Scrapper%sGUI%sMainGamePanel.java
@@ -65,6 +65,7 @@ s#l0
 %\011%uWidlerSuite%sBorderBuilder.java
 %\011Scrapper%sMap%sToggleTile.java
 %\011%uWidlerSuite%sVoronoi.java
+%\011Scrapper%sEngine%sInputHandler.java
 %\011%uWidlerSuite%sSmoothCA.java
 %\011%uWidlerSuite%sSpiralSearch.java
 %\011Scrapper%sAbility%sAbilityConstants.java
@@ -76,7 +77,7 @@ s#l0
 %\011%uWidlerSuite%sWSTools.java
 %\011Scrapper%sAI%sBasicAI.java
 %\011%uWidlerSuite%sHexLine.java
-!2315;f
+!2356;f
 %\011%uWidlerSuite%sMovementScriptStep.java
 %\011%uWidlerSuite%sUnboundTile.java
 %\011Scrapper%sGUI%sMainGamePanel.java
@@ -129,6 +130,7 @@ s#l0
 %\011%uWidlerSuite%sBorderBuilder.java
 %\011Scrapper%sMap%sToggleTile.java
 %\011%uWidlerSuite%sVoronoi.java
+%\011Scrapper%sEngine%sInputHandler.java
 %\011%uWidlerSuite%sSmoothCA.java
 %\011%uWidlerSuite%sSpiralSearch.java
 %\011Scrapper%sAbility%sAbilityConstants.java

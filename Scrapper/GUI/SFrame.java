@@ -67,28 +67,6 @@ public class SFrame extends JFrame implements GUIConstants, MapConstants, Abilit
    public void keyTyped(KeyEvent ke){}
    public void keyPressed(KeyEvent ke)
    {
-      SActor player = SEngine.getPlayer();
-      int newX = player.getX();
-      int newY = player.getY();
-      Direction dir = null;
-      switch(ke.getKeyCode())
-      {
-         case KeyEvent.VK_DOWN    :  newY++; dir = Direction.SOUTH; break;
-         case KeyEvent.VK_UP      :  newY--; dir = Direction.NORTH; break;
-         case KeyEvent.VK_RIGHT   :  newX++; dir = Direction.EAST; break;
-         case KeyEvent.VK_LEFT    :  newX--; dir = Direction.WEST; break;
-      }
-      if(SEngine.getCurZone().canStep(player, newX, newY))
-      {
-         BasicAI ai = player.getAI();
-         ai.setPendingDirection(dir);
-         ai.setPendingAction(Action.STEP);
-      }
-      else if(SEngine.getCurZone().getTile(newX, newY) instanceof ToggleTile)
-      {
-         BasicAI ai = player.getAI();
-         ai.setPendingDirection(dir);
-         ai.setPendingAction(Action.USE_ENVIRONMENT);
-      }
+      InputHandler.handleKeyInput(ke);
    }
 }
