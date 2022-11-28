@@ -14,6 +14,7 @@ public class BasicAI implements AbilityConstants, MapConstants
 	private Action pendingAction;
 	private Direction pendingDirection;
 	private Coord pendingTarget;
+   private boolean startOfTurnTaken;
 
 
 	public SActor getSelf(){return self;}
@@ -37,6 +38,7 @@ public class BasicAI implements AbilityConstants, MapConstants
       pendingAction = null;
       pendingDirection = null;
       pendingTarget = null;
+      startOfTurnTaken = false;
    }
    
    
@@ -61,7 +63,9 @@ public class BasicAI implements AbilityConstants, MapConstants
    public void chargeTurnEnergy()
    {
       if(!isCharged())
+      {
          turnEnergy++;
+      }
    }
    
    public boolean isCharged()
@@ -111,7 +115,10 @@ public class BasicAI implements AbilityConstants, MapConstants
             tookAction = false;
       }
       if(tookAction)
+      {
          clearPlan();
+         startOfTurnTaken = false;
+      }
    }
    
    public void passTurn()

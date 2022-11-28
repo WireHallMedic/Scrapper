@@ -57,16 +57,19 @@ public class SEngine
    // charge the current actor, and either let them act or move on
    private void processCurActor()
    {
-      BasicAI curAI = getActorList().elementAt(curActorIndex).getAI();
+      SActor curActor = getActorList().elementAt(curActorIndex);
+      BasicAI curAI = curActor.getAI();
       curAI.chargeTurnEnergy();
       if(curAI.isCharged() == false)
          incrementActor();
       else
       {
+         curActor.startTurn();
          curAI.plan();
          if(curAI.hasPlan())
          {
             curAI.act();
+            curActor.endTurn();
             incrementActor();
          }
       }

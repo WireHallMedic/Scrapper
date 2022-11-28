@@ -47,7 +47,14 @@ public class MapPanel extends RogueTilePanel implements GUIConstants
       for(int x = 0; x < MAP_PANEL_SIZE_TILES; x++)
       for(int y = 0; y < MAP_PANEL_SIZE_TILES; y++)
       {
-         tile = zone.getTile(x + cornerX, y + cornerY);
+         if(player.canSee(x + cornerX, y + cornerY))
+         {
+            tile = zone.getTile(x + cornerX, y + cornerY);
+         }
+         else
+         {
+            tile = zone.getOOBTile();
+         }
          setTile(x, y, tile.getTileBase().iconIndex, tile.getFGColor(), tile.getBGColor());
       }
       
@@ -55,7 +62,10 @@ public class MapPanel extends RogueTilePanel implements GUIConstants
       for(SActor actor : actorList)
       {
          UnboundTile actorTile = actor.getSprite();
-         setTile(actor.getX() - cornerX, actor.getY() - cornerY, actorTile.getIconIndex(), actorTile.getFGColor(), actorTile.getBGColor());
+         if(player.canSee(actor.getX(), actor.getY()))
+         {
+            setTile(actor.getX() - cornerX, actor.getY() - cornerY, actorTile.getIconIndex(), actorTile.getFGColor(), actorTile.getBGColor());
+         }
       }
    }
 }

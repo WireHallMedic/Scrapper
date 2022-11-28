@@ -9,10 +9,10 @@ public class Zone implements MapConstants, GUIConstants
 	private MapTile oobTile;
 
 
-	public MapTile getOobTile(){return oobTile;}
+	public MapTile getOOBTile(){return oobTile;}
 
 
-	public void setOobTile(MapTile o){oobTile = o;}
+	public void setOOBTile(MapTile o){oobTile = o;}
 
    public Zone(int width, int height)
    {
@@ -59,6 +59,18 @@ public class Zone implements MapConstants, GUIConstants
    public boolean canStep(SActor actor, int x, int y)
    {
       return getTile(x, y).canStep(actor);
+   }
+   
+   public boolean[][] getTransparencyArray(int xLoc, int yLoc, int rad)
+   {
+      int fullSize = rad + rad + 1;
+      boolean arr[][] = new boolean[fullSize][fullSize];
+      for(int x = 0; x < fullSize; x++)
+      for(int y = 0; y < fullSize; y++)
+      {
+         arr[x][y] = getTile(x + xLoc - rad, y + yLoc - rad).isTransparent();
+      }
+      return arr;
    }
    
    // testing method

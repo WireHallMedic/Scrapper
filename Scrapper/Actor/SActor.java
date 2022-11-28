@@ -3,14 +3,17 @@ package Scrapper.Actor;
 import WidlerSuite.*;
 import Scrapper.AI.*;
 import Scrapper.GUI.*;
+import Scrapper.Engine.*;
 
 public class SActor implements ActorConstants
 {
-	private UnboundTile sprite;
-   private boolean flies;
-   private boolean swims;
-   private BasicAI ai;
-   private int visionRadius;
+	protected UnboundTile sprite;
+   protected boolean flies;
+   protected boolean swims;
+   protected BasicAI ai;
+   protected int visionRadius;
+   protected ShadowFoVRect fov;
+   private boolean takingTurn;
 
 
 	public UnboundTile getSprite(){return sprite;}
@@ -31,7 +34,38 @@ public class SActor implements ActorConstants
       flies = false;
       swims = false;
       visionRadius = DEFAULT_VISION_RADIUS;
+      boolean[][] dummyVisionArray = {{false}};
+      fov = new ShadowFoVRect(dummyVisionArray);
       ai = new BasicAI(this);
+      takingTurn = false;
+   }
+   
+   // beginning of turn stuff
+   public void startTurn()
+   {
+      if(!takingTurn)
+      {
+         takingTurn = true;
+         updateFoV();
+      }
+   }
+   
+   // end of turn stuff
+   public void endTurn()
+   {
+      takingTurn = false;
+      updateFoV();
+   }
+   
+   private void updateFoV()
+   {
+      fov.reset(SEngine.getCurZone().getTransparencyArray(getX(), getY(), getVisionRadius()));
+      fov.calcFoV(getVisionRadius(), getVisionRadius(), getVisionRadius());
+   }
+   
+   public boolean canSee(int x, int y)
+   {
+      return fov.isVisible(x - getX() + getVisionRadius(), y - getY() + getVisionRadius());
    }
    
    
