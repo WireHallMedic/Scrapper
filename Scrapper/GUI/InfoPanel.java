@@ -1,11 +1,13 @@
 package Scrapper.GUI;
 
 import WidlerSuite.*;
+import java.util.*;
 import java.awt.*;
 
 public class InfoPanel extends RogueTilePanel implements GUIConstants
 {
    private static String newMessage = null;
+   private static Vector<String> messageList = new Vector<String>();
    
    public static void addMessage(String msg){newMessage = msg;}
    
@@ -51,9 +53,17 @@ public class InfoPanel extends RogueTilePanel implements GUIConstants
    {
       if(newMessage != null)
       {
-         clearMessageBox();
-         write(writeOriginX, writeOriginY, newMessage, columns() - 1, rows() - 1);
+         messageList.insertElementAt(newMessage, 0);
          newMessage = null;
+         while(messageList.size() > 5)
+            messageList.removeElementAt(5);
+         String compiledString = "";
+         for(String str : messageList)
+         {
+            compiledString += str + "\n\n";
+         }
+         clearMessageBox();
+         write(writeOriginX, writeOriginY, compiledString, columns() - 1, rows() - 1);
       }
    }
    
