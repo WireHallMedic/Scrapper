@@ -12,6 +12,7 @@ import WidlerSuite.*;
 public class SFullPanel extends JPanel implements GUIConstants
 {
    private MainGamePanel mainGamePanel;
+   private TextPanel terminalPanel;
    private TilePalette bigPalette;
    private TilePalette smallPalette;
    private Vector<JPanel> panelList;
@@ -31,9 +32,17 @@ public class SFullPanel extends JPanel implements GUIConstants
       this.add(mainGamePanel);
       panelList.add(mainGamePanel);
       
+      terminalPanel = new TextPanel(this, smallPalette);
+      terminalPanel.setLocation(0, 0);
+      this.add(terminalPanel);
+      panelList.add(terminalPanel);
+      
       setVisible(mainGamePanel);
       setVisible(true);
    }
+   
+   public void setMainGamePanelVisible(){setVisible(mainGamePanel);}
+   public void setTerminalVisible(){setVisible(terminalPanel);}
    
    public void setVisible(JPanel panel)
    {
