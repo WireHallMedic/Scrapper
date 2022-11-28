@@ -19,6 +19,7 @@ public interface GUIConstants
    public static final int MAP_BORDER_PANEL_SIZE_TILES = TILES_HIGH;
    public static final int MAP_PANEL_SIZE_TILES = TILES_HIGH - 2;
    public static final int MAP_PANEL_CENTER = (MAP_PANEL_SIZE_TILES / 2);
+   public static final int TEXT_PANEL_TILES_WIDE = TILES_WIDE * 2;
    
    public static final Color DEFAULT_BACKGROUND_COLOR = Color.BLACK;
    public static final Color DEFAULT_FOREGROUND_COLOR = Color.WHITE;
