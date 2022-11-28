@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.*;
 import WidlerSuite.*;
+import Scrapper.Engine.*;
 
 /*
    A standard JPanel so that the RogueTilePanels can stay a specific size
@@ -16,6 +17,9 @@ public class SFullPanel extends JPanel implements GUIConstants
    private TilePalette bigPalette;
    private TilePalette smallPalette;
    private Vector<JPanel> panelList;
+   private JPanel curPanel;
+   
+   public JPanel getCurPanel(){return curPanel;}
    
    public SFullPanel()
    {
@@ -26,6 +30,7 @@ public class SFullPanel extends JPanel implements GUIConstants
       bigPalette = TileManager.x2y2Palette;
       smallPalette = TileManager.xy2Palette;
       panelList = new Vector<JPanel>();
+      SEngine.register(this);
       
       mainGamePanel = new MainGamePanel(this, bigPalette, smallPalette);
       mainGamePanel.setLocation(0, 0);
@@ -42,13 +47,14 @@ public class SFullPanel extends JPanel implements GUIConstants
    }
    
    public void setMainGamePanelVisible(){setVisible(mainGamePanel);}
-   public void setTerminalVisible(){setVisible(terminalPanel);}
+   public void setTerminalPanelVisible(){setVisible(terminalPanel);}
    
    public void setVisible(JPanel panel)
    {
+      curPanel = panel;
       for(JPanel panelElement : panelList)
       {
-         if(panel == panelElement)
+         if(panelElement == curPanel)
             panelElement.setVisible(true);
          else
             panelElement.setVisible(false);

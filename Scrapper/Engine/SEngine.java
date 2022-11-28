@@ -2,8 +2,10 @@ package Scrapper.Engine;
 
 import Scrapper.Actor.*;
 import Scrapper.Map.*;
+import Scrapper.GUI.*;
 import Scrapper.AI.*;
 import java.util.*;
+import javax.swing.*;
 
 public class SEngine
 {
@@ -11,6 +13,7 @@ public class SEngine
    private static Zone curZone = null;
    private static Vector<SActor> actorList = new Vector<SActor>();
    private int curActorIndex = 0;
+   private static SFullPanel fullPanel = null;
    
    public static void setPlayer(SActor p){player = p;}
    public static void setCurZone(Zone z){curZone = z;}
@@ -76,4 +79,18 @@ public class SEngine
          curActorIndex = 0;
    }
    
+   
+   // panel switching methods
+   public static void register(SFullPanel fp)
+   {
+      fullPanel = fp;
+   }
+   
+   public static JPanel getCurPanel()
+   {
+      return fullPanel.getCurPanel();
+   }
+   
+   public static void setMainGamePanelVisible(){fullPanel.setMainGamePanelVisible();}
+   public static void setTerminalPanelVisible(){fullPanel.setTerminalPanelVisible();}
 }

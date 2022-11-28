@@ -11,6 +11,14 @@ public class InputHandler implements AbilityConstants, MapConstants
 {
    public static void handleKeyInput(KeyEvent ke)
    {
+      if(SEngine.getCurPanel() instanceof MainGamePanel)
+         handleMainGanePanelKeyInput(ke);
+      if(SEngine.getCurPanel() instanceof TextPanel)
+         handleTerminalPanelKeyInput(ke);
+   }
+   
+   private static void handleMainGanePanelKeyInput(KeyEvent ke)
+   {
       SActor player = SEngine.getPlayer();
       BasicAI ai = player.getAI();
       int newX = player.getX();
@@ -33,7 +41,7 @@ public class InputHandler implements AbilityConstants, MapConstants
          case KeyEvent.VK_NUMPAD3 :  newY++; newX++; dir = Direction.SOUTHEAST; break;
       }
       
-      // cancel choice
+      // cancel player choice
       if(ke.getKeyCode() == KeyEvent.VK_ESCAPE)
       {
          cancelPlayerAction(true);
@@ -73,12 +81,24 @@ public class InputHandler implements AbilityConstants, MapConstants
             ai.setPendingAction(Action.STEP);
          }
          // use environment
-         else if(SEngine.getCurZone().getTile(newX, newY) instanceof ToggleTile)
+         else if(SEngine.getCurZone().getTile(newX, newY) instanceof ToggleTile ||
+                 SEngine.getCurZone().getTile(newX, newY) instanceof TerminalTile)
          {
             ai.setPendingDirection(dir);
             ai.setPendingAction(Action.USE_ENVIRONMENT);
          }
          return;
+      }
+   }
+   
+   private static void handleTerminalPanelKeyInput(KeyEvent ke)
+   {
+      // cancel player choice
+      if(ke.getKeyCode() == KeyEvent.VK_ESCAPE ||
+         ke.getKeyCode() == KeyEvent.VK_ENTER ||
+         ke.getKeyCode() == KeyEvent.VK_SPACE)
+      {
+         SEngine.setMainGamePanelVisible();
       }
    }
    
@@ -95,11 +115,17 @@ public class InputHandler implements AbilityConstants, MapConstants
       }
    }
    
+   private static void goToMainGameScreen()
+   {
+      SEngine.setMainGamePanelVisible();
+   }
+   
    private static void setUseEnvironment()
    {
       BasicAI ai = SEngine.getPlayer().getAI();
       ai.setPendingAction(Action.USE_ENVIRONMENT);
       InfoPanel.addMessage("Choose a direction.");
    }
+   
 
 }
