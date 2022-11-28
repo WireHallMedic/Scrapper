@@ -4,29 +4,33 @@ import WidlerSuite.*;
 import Scrapper.AI.*;
 import Scrapper.GUI.*;
 
-public class SActor
+public class SActor implements ActorConstants
 {
 	private UnboundTile sprite;
    private boolean flies;
    private boolean swims;
    private BasicAI ai;
+   private int visionRadius;
 
 
 	public UnboundTile getSprite(){return sprite;}
    public boolean isFlying(){return flies;}
    public boolean isSwimming(){return swims;}
    public BasicAI getAI(){return ai;}
+   public int getVisionRadius(){return visionRadius;}
 
 	public void setSprite(UnboundTile s){sprite = s;}
    public void setFlying(boolean f){flies = f;}
    public void setSwimming(boolean s){swims = s;}
    public void setAI(BasicAI newAI){ai = newAI;}
+   public void setVisionRadius(int v){visionRadius = v;}
 
    public SActor()
    {
       sprite = new UnboundTile(TileManager.x2y2Palette);
       flies = false;
       swims = false;
+      visionRadius = DEFAULT_VISION_RADIUS;
       ai = new BasicAI(this);
    }
    

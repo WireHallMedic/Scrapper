@@ -12,7 +12,7 @@ s#i0
 s#k0
 s#j0
 s#l0
-!2502;g
+!2544;g
 %\011%uWidlerSuite%sMovementScriptStep.java
 %\011%uWidlerSuite%sUnboundTile.java
 %\011Scrapper%sGUI%sMainGamePanel.java
@@ -72,6 +72,7 @@ s#l0
 %\011%uWidlerSuite%sSmoothCA.java
 %\011%uWidlerSuite%sSpiralSearch.java
 %\011Scrapper%sAbility%sAbilityConstants.java
+%\011Scrapper%sActor%sActorConstants.java
 %\011%uWidlerSuite%sShadowFoVRect.java
 %\011%uWidlerSuite%sAStarOpenList.java
 %\011%uWidlerSuite%sFontLoader.java
@@ -81,7 +82,7 @@ s#l0
 %\011Scrapper%sAI%sBasicAI.java
 %\011%uWidlerSuite%sHexLine.java
 %\011Scrapper%sGUI%sTerminalPanel.java
-!2502;f
+!2544;f
 %\011%uWidlerSuite%sMovementScriptStep.java
 %\011%uWidlerSuite%sUnboundTile.java
 %\011Scrapper%sGUI%sMainGamePanel.java
@@ -141,6 +142,7 @@ s#l0
 %\011%uWidlerSuite%sSmoothCA.java
 %\011%uWidlerSuite%sSpiralSearch.java
 %\011Scrapper%sAbility%sAbilityConstants.java
+%\011Scrapper%sActor%sActorConstants.java
 %\011%uWidlerSuite%sShadowFoVRect.java
 %\011%uWidlerSuite%sAStarOpenList.java
 %\011%uWidlerSuite%sFontLoader.java

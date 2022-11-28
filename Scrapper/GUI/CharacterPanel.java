@@ -23,7 +23,7 @@ public class CharacterPanel extends RogueTilePanel implements GUIConstants
       {
          int[] arr = GUITools.getBarIcons(i, maxBarVal, segments);
          for(int j = 0; j < segments; j++)
-            setIcon(1 + j, 1 + i, arr[j]);
+            setTile(1 + j, 2 + i, arr[j], PRIMARY_COLOR, SECONDARY_COLOR);
       }
    }
    
