@@ -16,6 +16,7 @@ public class InputHandler implements AbilityConstants, MapConstants
       int newX = player.getX();
       int newY = player.getY();
       Direction dir = null;
+      // non-returning input
       switch(ke.getKeyCode())
       {
          case KeyEvent.VK_NUMPAD2 :
@@ -30,8 +31,20 @@ public class InputHandler implements AbilityConstants, MapConstants
          case KeyEvent.VK_NUMPAD9 :  newY--; newX++; dir = Direction.NORTHEAST; break;
          case KeyEvent.VK_NUMPAD1 :  newY++; newX--; dir = Direction.SOUTHWEST; break;
          case KeyEvent.VK_NUMPAD3 :  newY++; newX++; dir = Direction.SOUTHEAST; break;
-         case KeyEvent.VK_ESCAPE  :  cancelPlayerAction(true); break;
-         case KeyEvent.VK_U       :  setUseEnvironment(); break;
+      }
+      
+      // cancel choice
+      if(ke.getKeyCode() == KeyEvent.VK_ESCAPE)
+      {
+         cancelPlayerAction(true);
+         return;
+      }
+      
+      // set use environment
+      if(ke.getKeyCode() == KeyEvent.VK_U)
+      {
+         setUseEnvironment();
+         return;
       }
       
       // use environment follow-up
@@ -50,7 +63,8 @@ public class InputHandler implements AbilityConstants, MapConstants
       }
       
       // contextual
-      if(ai.getPendingAction() == null || ai.getPendingAction() == Action.CONTEXTUAL)
+      if((ai.getPendingAction() == null || ai.getPendingAction() == Action.CONTEXTUAL) && 
+         dir != null)
       {
          // step
          if(SEngine.getCurZone().canStep(player, newX, newY))
