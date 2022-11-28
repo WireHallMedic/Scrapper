@@ -13,7 +13,7 @@ public class InputHandler implements AbilityConstants, MapConstants
    {
       if(SEngine.getCurPanel() instanceof MainGamePanel)
          handleMainGanePanelKeyInput(ke);
-      if(SEngine.getCurPanel() instanceof TextPanel)
+      if(SEngine.getCurPanel() instanceof TerminalPanel)
          handleTerminalPanelKeyInput(ke);
    }
    

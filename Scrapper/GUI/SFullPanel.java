@@ -13,7 +13,7 @@ import Scrapper.Engine.*;
 public class SFullPanel extends JPanel implements GUIConstants
 {
    private MainGamePanel mainGamePanel;
-   private TextPanel terminalPanel;
+   private TerminalPanel terminalPanel;
    private TilePalette bigPalette;
    private TilePalette smallPalette;
    private Vector<JPanel> panelList;
@@ -37,7 +37,7 @@ public class SFullPanel extends JPanel implements GUIConstants
       this.add(mainGamePanel);
       panelList.add(mainGamePanel);
       
-      terminalPanel = new TextPanel(this, smallPalette);
+      terminalPanel = new TerminalPanel(this, smallPalette);
       terminalPanel.setLocation(0, 0);
       this.add(terminalPanel);
       panelList.add(terminalPanel);
