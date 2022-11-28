@@ -13,6 +13,18 @@ public class CharacterPanel extends RogueTilePanel implements GUIConstants
       setBorder();
       write(1, 1, "  Character Panel", SECONDARY_COLOR.getRGB(), DEFAULT_BACKGROUND_COLOR.getRGB(), 18, 1);
       setVisible(true);
+      
+      
+      
+      // bars
+      int maxBarVal = 16;
+      int segments = 10;
+      for(int i = 0; i <= maxBarVal; i++)
+      {
+         int[] arr = GUITools.getBarIcons(i, maxBarVal, segments);
+         for(int j = 0; j < segments; j++)
+            setIcon(1 + j, 1 + i, arr[j]);
+      }
    }
    
    public void setBorder()
