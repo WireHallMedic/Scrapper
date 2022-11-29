@@ -6,7 +6,7 @@ public interface MapConstants
    {
       NULL              (' ', false, false, false, false),
       VOID              (' ', true, false, true, false),
-      CLEAR             (250, true, true, true, false),      // centered dot
+      CLEAR             (250, true, true, true, false),     // centered dot
       LOW_DIFFICULT     (',', true, true, true, false),
       HIGH_WALL         ('#', false, false, false, false),
       LOW_WALL          ('=', true, false, true, false),
@@ -16,9 +16,10 @@ public interface MapConstants
       CLOSED_DOOR       ('|', false, false, false, false),
       OPEN_DOOR         ('/', true, true, true, false),
       UNFLIPPED_SWITCH  ('!', true, false, false, false),
-      FLIPPED_SWITCH    (173, true, false, false, false),      // inverted !
-      TERMINAL          (234, false, false, true, false);    // omega
-      
+      FLIPPED_SWITCH    (173, true, false, false, false),   // inverted !
+      TERMINAL          (234, false, false, true, false),   // omega
+      EXIT              ('&', true, true, true, false);    
+            
       public int iconIndex;
       public boolean transparent;
       public boolean lowPassable;
