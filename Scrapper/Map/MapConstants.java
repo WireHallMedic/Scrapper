@@ -15,8 +15,8 @@ public interface MapConstants
       BARS              (':', true, false, false, false),
       CLOSED_DOOR       ('|', false, false, false, false),
       OPEN_DOOR         ('/', true, true, true, false),
-      UNFLIPPED_SWITCH  ('!', false, false, false, false),
-      FLIPPED_SWITCH    (173, false, false, false, false),      // inverted !
+      UNFLIPPED_SWITCH  ('!', true, false, false, false),
+      FLIPPED_SWITCH    (173, true, false, false, false),      // inverted !
       TERMINAL          (234, false, false, true, false);    // omega
       
       public int iconIndex;

@@ -92,7 +92,7 @@ public class Zone implements MapConstants, GUIConstants
          z.tile[xIndex][yIndex] = new MapTile(TileBase.values()[i]);
       }
       z.tile[5][4].setFGColor(TERTIARY_COLOR);
-      z.tile[5][1] = MapTileFactory.getSwitch();
+      z.tile[5][1] = MapTileFactory.getSwitch(1);
       z.tile[7][1] = MapTileFactory.getDoor();
       z.tile[9][1] = new TerminalTile();
       

@@ -4,9 +4,9 @@ import java.awt.*;
 
 public class ToggleTile extends MapTile implements MapConstants
 {
-   private MapTile aState;
-   private MapTile bState;
-   private MapTile activeState;
+   protected MapTile aState;
+   protected MapTile bState;
+   protected MapTile activeState;
    
    public TileBase getTileBase(){return activeState.getTileBase();}
 	public Color getFGColor(){return activeState.getFGColor();}

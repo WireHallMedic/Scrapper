@@ -12,7 +12,7 @@ s#i0
 s#k0
 s#j0
 s#l0
-!2544;g
+!2580;g
 %\011%uWidlerSuite%sMovementScriptStep.java
 %\011%uWidlerSuite%sUnboundTile.java
 %\011Scrapper%sGUI%sMainGamePanel.java
@@ -75,6 +75,7 @@ s#l0
 %\011Scrapper%sActor%sActorConstants.java
 %\011%uWidlerSuite%sShadowFoVRect.java
 %\011%uWidlerSuite%sAStarOpenList.java
+%\011Scrapper%sMap%sSwitchTile.java
 %\011%uWidlerSuite%sFontLoader.java
 %\011%uWidlerSuite%sLayoutPanel.java
 %\011%uWidlerSuite%sShadowFoVHex.java
@@ -82,7 +83,7 @@ s#l0
 %\011Scrapper%sAI%sBasicAI.java
 %\011%uWidlerSuite%sHexLine.java
 %\011Scrapper%sGUI%sTerminalPanel.java
-!2544;f
+!2580;f
 %\011%uWidlerSuite%sMovementScriptStep.java
 %\011%uWidlerSuite%sUnboundTile.java
 %\011Scrapper%sGUI%sMainGamePanel.java
@@ -145,6 +146,7 @@ s#l0
 %\011Scrapper%sActor%sActorConstants.java
 %\011%uWidlerSuite%sShadowFoVRect.java
 %\011%uWidlerSuite%sAStarOpenList.java
+%\011Scrapper%sMap%sSwitchTile.java
 %\011%uWidlerSuite%sFontLoader.java
 %\011%uWidlerSuite%sLayoutPanel.java
 %\011%uWidlerSuite%sShadowFoVHex.java

@@ -4,9 +4,9 @@ import Scrapper.GUI.*;
 
 public class MapTileFactory implements MapConstants, GUIConstants
 {
-   public static MapTile getSwitch()
+   public static MapTile getSwitch(int eid)
    {
-      MapTile tile = new ToggleTile(TileBase.UNFLIPPED_SWITCH, TileBase.FLIPPED_SWITCH);
+      MapTile tile = new SwitchTile(eid);
       return tile;
    }
    
