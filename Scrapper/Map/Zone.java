@@ -73,7 +73,7 @@ public class Zone implements MapConstants, GUIConstants
       return arr;
    }
    
-   // testing method
+   // testing methods
    public static Zone getMock()
    {
       int size = 20;
@@ -95,6 +95,22 @@ public class Zone implements MapConstants, GUIConstants
       z.tile[5][1] = MapTileFactory.getSwitch(1);
       z.tile[7][1] = MapTileFactory.getDoor();
       z.tile[9][1] = new TerminalTile();
+      z.tile[1][6] = new ExitTile(4);
+      
+      return z;
+   }
+   public static Zone getMock2()
+   {
+      int size = 20;
+      Zone z = new Zone(size, size);
+      for(int i = 0; i < size; i++)
+      {
+         z.tile[i][0] = new MapTile(TileBase.HIGH_WALL);
+         z.tile[i][size - 1] = new MapTile(TileBase.HIGH_WALL);
+         z.tile[0][i] = new MapTile(TileBase.HIGH_WALL);
+         z.tile[size - 1][i] = new MapTile(TileBase.HIGH_WALL);
+      }
+      z.tile[5][5] = new ExitTile(4);
       
       return z;
    }

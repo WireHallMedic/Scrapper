@@ -4,8 +4,9 @@ import WidlerSuite.*;
 import Scrapper.AI.*;
 import Scrapper.GUI.*;
 import Scrapper.Engine.*;
+import Scrapper.Ability.*;
 
-public class SActor implements ActorConstants
+public class SActor implements ActorConstants, AbilityConstants
 {
 	protected UnboundTile sprite;
    protected boolean flies;
@@ -54,6 +55,10 @@ public class SActor implements ActorConstants
    public void endTurn()
    {
       takingTurn = false;
+      if(getAI().getLastAction() == Action.STEP)
+      {
+         SEngine.resolveStepTaken(this);
+      }
       updateFoV();
    }
    

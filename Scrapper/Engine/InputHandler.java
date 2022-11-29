@@ -39,6 +39,7 @@ public class InputHandler implements AbilityConstants, MapConstants
          case KeyEvent.VK_NUMPAD9 :  newY--; newX++; dir = Direction.NORTHEAST; break;
          case KeyEvent.VK_NUMPAD1 :  newY++; newX--; dir = Direction.SOUTHWEST; break;
          case KeyEvent.VK_NUMPAD3 :  newY++; newX++; dir = Direction.SOUTHEAST; break;
+         case KeyEvent.VK_NUMPAD5 :  dir = Direction.ORIGIN; break;
       }
       
       // cancel player choice
@@ -74,6 +75,12 @@ public class InputHandler implements AbilityConstants, MapConstants
       if((ai.getPendingAction() == null || ai.getPendingAction() == Action.CONTEXTUAL) && 
          dir != null)
       {
+         // pass turn
+         if(dir == Direction.ORIGIN)
+         {
+            ai.setPendingAction(Action.PASS_TURN);
+            ai.setPendingDirection(dir);
+         }
          // step
          if(SEngine.getCurZone().canStep(player, newX, newY))
          {

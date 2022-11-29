@@ -45,7 +45,8 @@ public interface MapConstants
       SOUTH       (0, 1),
       SOUTHWEST   (-1, 1),
       WEST        (-1, 0),
-      NORTHWEST   (-1, -1);
+      NORTHWEST   (-1, -1),
+      ORIGIN      (0, 0);
       
       public int x;
       public int y;

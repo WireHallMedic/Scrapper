@@ -6,6 +6,7 @@ import Scrapper.GUI.*;
 import Scrapper.AI.*;
 import java.util.*;
 import javax.swing.*;
+import java.util.logging.*;
 
 public class SEngine
 {
@@ -48,6 +49,19 @@ public class SEngine
    public static void clearActorList()
    {
       actorList = new Vector<SActor>();
+   }
+   
+   public static void resolveStepTaken(SActor actor)
+   {
+      if(actor == getPlayer())
+      {
+         MapTile tile = getCurZone().getTile(actor.getX(), actor.getY());
+         if(tile instanceof ExitTile)
+         {
+            ExitTile exitTile = (ExitTile)tile;
+            Logger.getGlobal().info("Stepped on exit " + exitTile.getPathNum());
+         }
+      }
    }
    
    public void run()

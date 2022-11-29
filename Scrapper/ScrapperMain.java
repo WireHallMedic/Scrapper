@@ -19,7 +19,7 @@ public class ScrapperMain
          SActor player = SActor.getMock();
          SEngine.setPlayer(player);
          SEngine.add(player);
-         SEngine.add(SActor.getMockEnemy());
+         //SEngine.add(SActor.getMockEnemy());
          SEngine.add(SActor.getMockEnemy2());
          SEngine.setCurZone(Zone.getMock());
          
