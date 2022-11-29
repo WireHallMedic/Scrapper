@@ -7,5 +7,6 @@ public class TerminalTile extends MapTile implements GUIConstants, MapConstants
    public TerminalTile()
    {
       super(TileBase.TERMINAL);
+      setFGColor(PRIMARY_COLOR);
    }   
 }

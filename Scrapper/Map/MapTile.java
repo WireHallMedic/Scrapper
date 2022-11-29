@@ -24,7 +24,9 @@ public class MapTile implements MapConstants, GUIConstants
    {
       tileBase = base;
       fgColor = DEFAULT_FOREGROUND_COLOR;
-      bgColor = DEFAULT_BACKGROUND_COLOR;
+      bgColor = DEFAULT_FLOOR_COLOR;
+      if(tileBase == TileBase.NULL || tileBase == TileBase.VOID)
+         bgColor = DEFAULT_BACKGROUND_COLOR;
    }   
    
    // copy constructor

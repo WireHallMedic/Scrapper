@@ -27,6 +27,7 @@ public interface GUIConstants
    public static final Color PRIMARY_COLOR = new Color(0x00FFFF);       // cyan
    public static final Color SECONDARY_COLOR = new Color(0xFF8000);     // orange
    public static final Color TERTIARY_COLOR = new Color(0xFF0080);      // magenta
+   public static final Color DEFAULT_FLOOR_COLOR = new Color(0x101010);
    
    public static final int TIMER_INTERVAL = 1000 / 30;   // milliseconds
 }
