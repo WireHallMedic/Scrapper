@@ -14,6 +14,7 @@ public class SEngine
    private static Vector<SActor> actorList = new Vector<SActor>();
    private int curActorIndex = 0;
    private static SFullPanel fullPanel = null;
+   private static int uniqueIDIndex = 0;
    
    public static void setPlayer(SActor p){player = p;}
    public static void setCurZone(Zone z){curZone = z;}
@@ -23,6 +24,12 @@ public class SEngine
    public static Zone getCurZone(){return curZone;}
    public static Vector<SActor> getActorList(){return actorList;}
    
+   
+   public static int getUniqueID()
+   {
+      uniqueIDIndex++;
+      return uniqueIDIndex;
+   }
    
    // actor methods
    public static void add(SActor actor)
