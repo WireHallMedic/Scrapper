@@ -15,4 +15,16 @@ public class MapTileFactory implements MapConstants, GUIConstants
       MapTile tile = new DoorTile();
       return tile;
    }
+   
+   public static MapTile getTerminal(String msg)
+   {
+      TerminalTile tile = new TerminalTile();
+      tile.setMessage(msg);
+      return tile;
+   }
+   
+   public static MapTile getExit(int exitPath)
+   {
+      return new ExitTile(exitPath);
+   }
 }

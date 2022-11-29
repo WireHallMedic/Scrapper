@@ -12,7 +12,7 @@ s#i0
 s#k0
 s#j0
 s#l0
-!2648;g
+!2684;g
 %\011%uWidlerSuite%sMovementScriptStep.java
 %\011%uWidlerSuite%sUnboundTile.java
 %\011Scrapper%sMap%sExitTile.java
@@ -80,12 +80,13 @@ s#l0
 %\011Scrapper%sMap%sSwitchTile.java
 %\011%uWidlerSuite%sFontLoader.java
 %\011%uWidlerSuite%sLayoutPanel.java
+%\011Scrapper%sMap%sMapFactory.java
 %\011%uWidlerSuite%sShadowFoVHex.java
 %\011%uWidlerSuite%sWSTools.java
 %\011Scrapper%sAI%sBasicAI.java
 %\011%uWidlerSuite%sHexLine.java
 %\011Scrapper%sGUI%sTerminalPanel.java
-!2648;f
+!2684;f
 %\011%uWidlerSuite%sMovementScriptStep.java
 %\011%uWidlerSuite%sUnboundTile.java
 %\011Scrapper%sMap%sExitTile.java
@@ -153,6 +154,7 @@ s#l0
 %\011Scrapper%sMap%sSwitchTile.java
 %\011%uWidlerSuite%sFontLoader.java
 %\011%uWidlerSuite%sLayoutPanel.java
+%\011Scrapper%sMap%sMapFactory.java
 %\011%uWidlerSuite%sShadowFoVHex.java
 %\011%uWidlerSuite%sWSTools.java
 %\011Scrapper%sAI%sBasicAI.java
