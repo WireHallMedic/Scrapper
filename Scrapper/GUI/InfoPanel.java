@@ -71,6 +71,7 @@ public class InfoPanel extends RogueTilePanel implements GUIConstants
    public void paint(Graphics g)
    {
       postMessage();
+      setBorder();
       super.paint(g);
    }
 }

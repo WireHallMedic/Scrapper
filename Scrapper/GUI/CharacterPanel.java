@@ -1,6 +1,7 @@
 package Scrapper.GUI;
 
 import WidlerSuite.*;
+import java.awt.*;
 
 public class CharacterPanel extends RogueTilePanel implements GUIConstants
 {
@@ -42,5 +43,11 @@ public class CharacterPanel extends RogueTilePanel implements GUIConstants
       }
       setTile(0, 0, getPalette().flatten(10, 13), PRIMARY_COLOR, DEFAULT_BACKGROUND_COLOR);
       setTile(0, SIDE_PANEL_HEIGHT_TILES - 1, getPalette().flatten(0, 12), PRIMARY_COLOR, DEFAULT_BACKGROUND_COLOR);
+   }
+   
+   public void paint(Graphics g)
+   {
+      setBorder();
+      super.paint(g);
    }
 }
