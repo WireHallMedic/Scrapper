@@ -12,7 +12,7 @@ s#i0
 s#k0
 s#j0
 s#l0
-!2580;g
+!2614;g
 %\011%uWidlerSuite%sMovementScriptStep.java
 %\011%uWidlerSuite%sUnboundTile.java
 %\011Scrapper%sGUI%sMainGamePanel.java
@@ -40,6 +40,7 @@ s#l0
 %\011%uWidlerSuite%sTileAnimationManager.java
 %\011%uWidlerSuite%sRoom.java
 %\011Scrapper%sGUI%sTextPanel.java
+%\011Scrapper%sMap%sDoorTile.java
 %\011%uWidlerSuite%sUnboundInterface.java
 %\011%uWidlerSuite%sWSConstants.java
 %\011Scrapper%sMap%sMapConstants.java
@@ -83,7 +84,7 @@ s#l0
 %\011Scrapper%sAI%sBasicAI.java
 %\011%uWidlerSuite%sHexLine.java
 %\011Scrapper%sGUI%sTerminalPanel.java
-!2580;f
+!2614;f
 %\011%uWidlerSuite%sMovementScriptStep.java
 %\011%uWidlerSuite%sUnboundTile.java
 %\011Scrapper%sGUI%sMainGamePanel.java
@@ -111,6 +112,7 @@ s#l0
 %\011%uWidlerSuite%sTileAnimationManager.java
 %\011%uWidlerSuite%sRoom.java
 %\011Scrapper%sGUI%sTextPanel.java
+%\011Scrapper%sMap%sDoorTile.java
 %\011%uWidlerSuite%sUnboundInterface.java
 %\011%uWidlerSuite%sWSConstants.java
 %\011Scrapper%sMap%sMapConstants.java

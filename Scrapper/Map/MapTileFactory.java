@@ -12,7 +12,7 @@ public class MapTileFactory implements MapConstants, GUIConstants
    
    public static MapTile getDoor()
    {
-      MapTile tile = new ToggleTile(TileBase.CLOSED_DOOR, TileBase.OPEN_DOOR);
+      MapTile tile = new DoorTile();
       return tile;
    }
 }
