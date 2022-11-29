@@ -2,17 +2,21 @@ package Scrapper.Map;
 
 import Scrapper.GUI.*;
 import Scrapper.Actor.*;
+import WidlerSuite.*;
+import java.util.*;
 
 public class Zone implements MapConstants, GUIConstants
 {
    private MapTile[][] tile;
 	private MapTile oobTile;
+   private Vector<ExitLoc> exitList;
 
 
 	public MapTile getOOBTile(){return oobTile;}
 
 
 	public void setOOBTile(MapTile o){oobTile = o;}
+
 
    public Zone(int width, int height)
    {
@@ -23,6 +27,7 @@ public class Zone implements MapConstants, GUIConstants
          tile[x][y] = new MapTile(TileBase.CLEAR);
       }
       oobTile = new MapTile(TileBase.NULL);
+      exitList = new Vector<ExitLoc>();
    }
    
    public int width()
@@ -73,6 +78,51 @@ public class Zone implements MapConstants, GUIConstants
       return arr;
    }
    
+   public boolean hasExit(int pn)
+   {
+      for(ExitLoc el : exitList)
+      {
+         if(el.pathNum == pn)
+            return true;
+      }
+      return false;
+   }
+   
+   public Coord getExitLoc(int pn)
+   {
+      for(ExitLoc el : exitList)
+      {
+         if(el.pathNum == pn)
+            return el.loc;
+      }
+      return null;
+   }
+   
+   public void postProcess()
+   {
+      for(int x = 0; x < width(); x++)
+      for(int y = 0; y < height(); y++)
+      {
+         if(getTile(x, y) instanceof ExitTile)
+         {
+            ExitTile exitTile = (ExitTile)getTile(x, y);
+            exitList.add(new ExitLoc(exitTile.getPathNum(), x, y));
+         }
+      }
+   }
+   
+   private class ExitLoc
+   {
+      public int pathNum;
+      public Coord loc;
+      
+      public ExitLoc(int pn, int x, int y)
+      {
+         pathNum = pn;
+         loc = new Coord(x, y);
+      }
+   }
+   
    // testing methods
    public static Zone getMock()
    {
@@ -85,20 +135,22 @@ public class Zone implements MapConstants, GUIConstants
          z.tile[0][i] = new MapTile(TileBase.HIGH_WALL);
          z.tile[size - 1][i] = new MapTile(TileBase.HIGH_WALL);
       }
-      for(int i = 0; i < TileBase.values().length; i++)
-      {
-         int xIndex = ((i % 7) + 1) * 2;
-         int yIndex = ((i / 7) + 2) * 2;
-         z.tile[xIndex][yIndex] = new MapTile(TileBase.values()[i]);
-      }
+      
+      z.tile[4][2] = new MapTile(TileBase.HIGH_WALL);
+      z.tile[5][2] = new MapTile(TileBase.HIGH_WALL);
+      z.tile[4][3] = new MapTile(TileBase.HIGH_WALL);
+      z.tile[5][3] = new MapTile(TileBase.HIGH_WALL);
+      
       z.tile[5][4].setFGColor(TERTIARY_COLOR);
       z.tile[5][1] = MapTileFactory.getSwitch(1);
       z.tile[7][1] = MapTileFactory.getDoor();
       z.tile[9][1] = new TerminalTile();
       z.tile[1][6] = new ExitTile(4);
-      
+      z.tile[1][7] = new ExitTile(5);
+      z.postProcess();
       return z;
    }
+   
    public static Zone getMock2()
    {
       int size = 20;
@@ -112,6 +164,34 @@ public class Zone implements MapConstants, GUIConstants
       }
       z.tile[5][5] = new ExitTile(4);
       
+      z.tile[4][2] = new MapTile(TileBase.LOW_WALL);
+      z.tile[5][2] = new MapTile(TileBase.LOW_WALL);
+      z.tile[4][3] = new MapTile(TileBase.LOW_WALL);
+      z.tile[5][3] = new MapTile(TileBase.LOW_WALL);
+      
+      z.postProcess();
+      return z;
+   }
+   
+   public static Zone getMock3()
+   {
+      int size = 20;
+      Zone z = new Zone(size, size);
+      for(int i = 0; i < size; i++)
+      {
+         z.tile[i][0] = new MapTile(TileBase.HIGH_WALL);
+         z.tile[i][size - 1] = new MapTile(TileBase.HIGH_WALL);
+         z.tile[0][i] = new MapTile(TileBase.HIGH_WALL);
+         z.tile[size - 1][i] = new MapTile(TileBase.HIGH_WALL);
+      }
+      z.tile[3][3] = new ExitTile(5);
+      
+      z.tile[4][2] = new MapTile(TileBase.DEEP_LIQUID);
+      z.tile[5][2] = new MapTile(TileBase.DEEP_LIQUID);
+      z.tile[4][3] = new MapTile(TileBase.DEEP_LIQUID);
+      z.tile[5][3] = new MapTile(TileBase.DEEP_LIQUID);
+      
+      z.postProcess();
       return z;
    }
 }

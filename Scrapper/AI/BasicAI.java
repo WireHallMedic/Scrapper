@@ -101,7 +101,7 @@ public class BasicAI implements AbilityConstants, MapConstants
    public boolean hasPlan()
    {
       return(pendingAction == Action.PASS_TURN ||
-         pendingAction != null && (pendingTarget != null || pendingDirection != null));
+             pendingAction != null && (pendingTarget != null || pendingDirection != null));
    }
    
    
@@ -112,7 +112,6 @@ public class BasicAI implements AbilityConstants, MapConstants
       {
          case PASS_TURN:
             passTurn();
-            Logger.getGlobal().info("Passing turn, player = " + (this instanceof PlayerAI));
             break;
          case STEP:
             takeStep();

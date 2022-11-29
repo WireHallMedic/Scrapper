@@ -80,6 +80,7 @@ public class SActor implements ActorConstants, AbilityConstants
    public int getY(){return sprite.getYLoc();}
    public void setX(int x){sprite.setXLoc(x);}
    public void setY(int y){sprite.setYLoc(y);}
+   public void setLoc(Coord c){setX(c.x); setY(c.y);}
    
    public static SActor getMock()
    {

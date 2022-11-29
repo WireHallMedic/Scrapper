@@ -16,6 +16,7 @@ public class SEngine
    private int curActorIndex = 0;
    private static SFullPanel fullPanel = null;
    private static int uniqueIDIndex = 0;
+   private static Vector<Zone> zoneList = new Vector<Zone>();
    
    public static void setPlayer(SActor p){player = p;}
    public static void setCurZone(Zone z){curZone = z;}
@@ -41,6 +42,11 @@ public class SEngine
       }
    }
    
+   public static void add(Zone z)
+   {
+      zoneList.add(z);
+   }
+   
    public static void remove(SActor actor)
    {
       actorList.remove(actor);
@@ -56,11 +62,31 @@ public class SEngine
       if(actor == getPlayer())
       {
          MapTile tile = getCurZone().getTile(actor.getX(), actor.getY());
+         
          if(tile instanceof ExitTile)
          {
             ExitTile exitTile = (ExitTile)tile;
-            Logger.getGlobal().info("Stepped on exit " + exitTile.getPathNum());
+            useExit(exitTile.getPathNum());
          }
+      }
+   }
+   
+   public static void useExit(int pathNum)
+   {
+      Zone destZone = null;
+      // find other map with matching exit
+      for(Zone z : zoneList)
+      {
+         if(z != getCurZone() && z.hasExit(pathNum))
+         {
+            destZone = z;
+            break;
+         }
+      }
+      if(destZone != null)
+      {
+         getPlayer().setLoc(destZone.getExitLoc(pathNum));
+         setCurZone(destZone);
       }
    }
    
