@@ -57,4 +57,23 @@ public interface MapConstants
          y = _y;
       }
    }
+   
+   public enum Region
+   {
+      SECURITY       ("Security"),
+      QUARTERS       ("Quarters"),
+      ENGINEERING    ("Engineering"),
+      LABS           ("Labs"),
+      DISTROBUTION   ("Distrobution"),
+      BRIDGE         ("Bridge"),
+      TRANSIT        ("Transit"),
+      DOCKS          ("Docks");
+      
+      public String name;
+      
+      private Region(String n)
+      {
+         name = n;
+      }
+   }
 }
