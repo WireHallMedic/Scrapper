@@ -142,5 +142,5 @@ public class SEngine
    }
    
    public static void setMainGamePanelVisible(){fullPanel.setMainGamePanelVisible();}
-   public static void setTerminalPanelVisible(){fullPanel.setTerminalPanelVisible();}
+   public static void setTerminalPanelVisible(TerminalTile terminalTile){fullPanel.setTerminalPanelVisible(terminalTile);}
 }

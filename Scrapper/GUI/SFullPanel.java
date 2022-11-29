@@ -5,6 +5,7 @@ import java.awt.*;
 import java.util.*;
 import WidlerSuite.*;
 import Scrapper.Engine.*;
+import Scrapper.Map.*;
 
 /*
    A standard JPanel so that the RogueTilePanels can stay a specific size
@@ -47,7 +48,12 @@ public class SFullPanel extends JPanel implements GUIConstants
    }
    
    public void setMainGamePanelVisible(){setVisible(mainGamePanel);}
-   public void setTerminalPanelVisible(){setVisible(terminalPanel);}
+   
+   public void setTerminalPanelVisible(TerminalTile terminalTile)
+   {
+      terminalPanel.set(terminalTile.getMessage());
+      setVisible(terminalPanel);
+   }
    
    public void setVisible(JPanel panel)
    {

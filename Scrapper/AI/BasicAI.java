@@ -159,7 +159,8 @@ public class BasicAI implements AbilityConstants, MapConstants
       }
       if(SEngine.getCurZone().getTile(newX, newY) instanceof TerminalTile)
       {
-         SEngine.setTerminalPanelVisible();
+         TerminalTile terminalTile = (TerminalTile)SEngine.getCurZone().getTile(newX, newY);
+         SEngine.setTerminalPanelVisible(terminalTile);
       }
       reduceTurnEnergy(AbilityConstants.NORMAL_SPEED);
    }

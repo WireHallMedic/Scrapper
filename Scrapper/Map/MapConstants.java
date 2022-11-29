@@ -60,14 +60,18 @@ public interface MapConstants
    
    public enum Region
    {
-      SECURITY       ("Security"),
+      DOCKS          ("Docks"),
+      DISTRIBUTION   ("Distribution"),
+      TRANSIT        ("Transit"),
       QUARTERS       ("Quarters"),
+      SECURITY       ("Security"),
       ENGINEERING    ("Engineering"),
       LABS           ("Labs"),
-      DISTROBUTION   ("Distrobution"),
-      BRIDGE         ("Bridge"),
-      TRANSIT        ("Transit"),
-      DOCKS          ("Docks");
+      OPERATIONS     ("Operations"),
+      BRIG           ("Security - Brig"),
+      REACTOR        ("Engineering - Reactor"),
+      SECURE_LABS    ("Labs - Secure Labs"),
+      BRIDGE         ("Operations - Bridge"),;
       
       public String name;
       
