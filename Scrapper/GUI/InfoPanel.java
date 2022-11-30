@@ -8,20 +8,22 @@ public class InfoPanel extends RogueTilePanel implements GUIConstants
 {
    private static String newMessage = null;
    private static Vector<String> messageList = new Vector<String>();
+   private static final int MAX_MESSAGES_DISPLAYED = 3;
    
    public static void addMessage(String msg){newMessage = msg;}
    
-   private int writeOriginX = 0;
-   private int writeOriginY = 1;
+   private int writeOriginX = 1;
+   private int writeOriginY = 0;
    
    public InfoPanel(int w, int h, TilePalette p)
    {
       super(w, h, p);
       setSizeMultiplier(DEFAULT_TILE_SIZE_MULTIPLIER);
-      int widthPixels = SIDE_PANEL_HEIGHT_TILES * DEFAULT_TILE_SIZE;
-      setSize(SIDE_PANEL_WIDTH_TILES * DEFAULT_TILE_SIZE / 2, SIDE_PANEL_HEIGHT_TILES * DEFAULT_TILE_SIZE);
+      setSize(TEXT_PANEL_TILES_WIDE * DEFAULT_TILE_SIZE / 2, INFO_PANEL_TILES_HIGH * DEFAULT_TILE_SIZE);
+      write(1, 0, "    Info Panel", SECONDARY_COLOR.getRGB(), DEFAULT_BACKGROUND_COLOR.getRGB(), 18, 1);
       setBorder();
-      write(0, 1, "    Info Panel", SECONDARY_COLOR.getRGB(), DEFAULT_BACKGROUND_COLOR.getRGB(), 18, 1);
+      for(int i = 0; i < MAX_MESSAGES_DISPLAYED; i++)
+         messageList.add("");
       setVisible(true);
    }
    
@@ -29,17 +31,17 @@ public class InfoPanel extends RogueTilePanel implements GUIConstants
    {
       int vertBar = getPalette().flatten(3, 11);
       int horizBar = getPalette().flatten(4, 12);
-      for(int x = 0; x < SIDE_PANEL_WIDTH_TILES; x++)
+      for(int x = 0; x < TEXT_PANEL_TILES_WIDE; x++)
       {
-         setTile(x, 0, horizBar, PRIMARY_COLOR, DEFAULT_BACKGROUND_COLOR);
-         setTile(x, SIDE_PANEL_HEIGHT_TILES - 1, horizBar, PRIMARY_COLOR, DEFAULT_BACKGROUND_COLOR);
+         setTile(x, INFO_PANEL_TILES_HIGH - 1, horizBar, PRIMARY_COLOR, DEFAULT_BACKGROUND_COLOR);
       }
-      for(int y = 0; y < SIDE_PANEL_HEIGHT_TILES; y++)
+      for(int y = 0; y < INFO_PANEL_TILES_HIGH; y++)
       {
-         setTile(SIDE_PANEL_WIDTH_TILES - 1, y, vertBar, PRIMARY_COLOR, DEFAULT_BACKGROUND_COLOR);
+         setTile(TEXT_PANEL_TILES_WIDE - 1, y, vertBar, PRIMARY_COLOR, DEFAULT_BACKGROUND_COLOR);
+         setTile(0, y, vertBar, PRIMARY_COLOR, DEFAULT_BACKGROUND_COLOR);
       }
-      setTile(SIDE_PANEL_WIDTH_TILES - 1, 0, getPalette().flatten(15, 11), PRIMARY_COLOR, DEFAULT_BACKGROUND_COLOR);
-      setTile(SIDE_PANEL_WIDTH_TILES - 1, SIDE_PANEL_HEIGHT_TILES - 1, getPalette().flatten(9, 13), PRIMARY_COLOR, DEFAULT_BACKGROUND_COLOR);
+      setTile(0, INFO_PANEL_TILES_HIGH - 1, getPalette().flatten(0, 12), PRIMARY_COLOR, DEFAULT_BACKGROUND_COLOR);
+      setTile(TEXT_PANEL_TILES_WIDE - 1, INFO_PANEL_TILES_HIGH - 1, getPalette().flatten(9, 13), PRIMARY_COLOR, DEFAULT_BACKGROUND_COLOR);
    }
    
    private void clearMessageBox()
@@ -55,15 +57,10 @@ public class InfoPanel extends RogueTilePanel implements GUIConstants
       {
          messageList.insertElementAt(newMessage, 0);
          newMessage = null;
-         while(messageList.size() > 5)
-            messageList.removeElementAt(5);
-         String compiledString = "";
-         for(String str : messageList)
-         {
-            compiledString += str + "\n\n";
-         }
+         messageList.removeElementAt(MAX_MESSAGES_DISPLAYED);
          clearMessageBox();
-         write(writeOriginX, writeOriginY, compiledString, columns() - 1, rows() - 1);
+         for(int i = 0; i < MAX_MESSAGES_DISPLAYED; i++)
+            write(writeOriginX, writeOriginY + i, messageList.elementAt(i), columns() - 2, 1);
       }
    }
    

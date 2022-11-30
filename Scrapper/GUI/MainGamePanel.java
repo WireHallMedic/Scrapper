@@ -11,6 +11,7 @@ public class MainGamePanel extends JPanel implements GUIConstants
    private InfoPanel infoPanel;
    private MapPanel mapPanel;
    private MapBorderPanel mapBorderPanel;
+   private EnvironmentPanel envPanel;
    private TilePalette bigPalette;
    private TilePalette smallPalette;
    
@@ -38,14 +39,18 @@ public class MainGamePanel extends JPanel implements GUIConstants
       characterPanel = new CharacterPanel(SIDE_PANEL_WIDTH_TILES, SIDE_PANEL_HEIGHT_TILES, tpSmall);
       characterPanel.setSizeMultiplier(DEFAULT_TILE_SIZE_MULTIPLIER);
       characterPanel.setLocation(0, 0);
-      characterPanel.setSize(sidePanelWidth, sidePanelHeight);
       this.add(characterPanel);
       characterPanel.setVisible(true);
       
-      infoPanel = new InfoPanel(SIDE_PANEL_WIDTH_TILES, SIDE_PANEL_HEIGHT_TILES, tpSmall);
+      envPanel = new EnvironmentPanel(SIDE_PANEL_WIDTH_TILES, SIDE_PANEL_HEIGHT_TILES, tpSmall);
+      envPanel.setSizeMultiplier(DEFAULT_TILE_SIZE_MULTIPLIER);
+      envPanel.setLocation(this.getWidth() - sidePanelWidth, 0);
+      this.add(envPanel);
+      envPanel.setVisible(true);
+      
+      infoPanel = new InfoPanel(TEXT_PANEL_TILES_WIDE, INFO_PANEL_TILES_HIGH, tpSmall);
       infoPanel.setSizeMultiplier(DEFAULT_TILE_SIZE_MULTIPLIER);
-      infoPanel.setLocation(this.getWidth() - sidePanelWidth, 0);
-      infoPanel.setSize(sidePanelWidth, sidePanelHeight);
+      infoPanel.setLocation(0, MAP_BORDER_PANEL_SIZE);
       this.add(infoPanel);
       infoPanel.setVisible(true);
       

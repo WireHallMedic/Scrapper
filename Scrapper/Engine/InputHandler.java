@@ -136,6 +136,6 @@ public class InputHandler implements AbilityConstants, MapConstants
    
    public static void doDebugAction()
    {
-      System.out.println(SEngine.getPlayer().getAI().getLastAction() + "");
+      InfoPanel.addMessage("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
    }
 }
