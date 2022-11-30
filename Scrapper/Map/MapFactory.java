@@ -5,6 +5,29 @@ import Scrapper.Engine.*;
 
 public class MapFactory implements MapConstants
 {
+   private static final int[][] pathKeyArr = generatePathKeys();
+   
+   private static int[][] generatePathKeys()
+   {
+      int len = Region.values().length;
+      int[][] keyArr = new int[len][len];
+      for(int x = 0; x < len; x++)
+      for(int y = 0; y < len; y++)
+      {
+         keyArr[x][y] = SEngine.getUniqueID();
+      }
+      return keyArr;
+   }
+   
+   // returns an int to be used as the pathNum for exit tiles
+   public static int getPathKey(Region a, Region b)
+   {
+      int x = Math.min(a.ordinal(), b.ordinal());
+      int y = Math.max(a.ordinal(), b.ordinal());
+      return pathKeyArr[x][y];
+   }
+   
+   
    public static Zone getDummyZone(String name, int[] exitPathList)
    {
       int size = 20;

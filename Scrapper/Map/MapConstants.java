@@ -71,7 +71,8 @@ public interface MapConstants
       BRIG           ("Security - Brig"),
       REACTOR        ("Engineering - Reactor"),
       SECURE_LABS    ("Labs - Secure Labs"),
-      BRIDGE         ("Operations - Bridge");
+      BRIDGE         ("Operations - Bridge"),
+      SPECIAL        ("Special");
       
       public String name;
       

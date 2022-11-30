@@ -18,7 +18,7 @@ public class CharacterPanel extends RogueTilePanel implements GUIConstants
       
       // bars
       int maxBarVal = 16;
-      int segments = 10;
+      int segments = 4;
       for(int i = 0; i <= maxBarVal; i++)
       {
          int[] arr = GUITools.getBarIcons(i, maxBarVal, segments);
