@@ -12,7 +12,7 @@ s#i0
 s#k0
 s#j0
 s#l0
-!2726;g
+!2762;g
 %\011%uWidlerSuite%sMovementScriptStep.java
 %\011%uWidlerSuite%sUnboundTile.java
 %\011Scrapper%sMap%sExitTile.java
@@ -28,6 +28,7 @@ s#l0
 %\011%uWidlerSuite%sShadowFoV.java
 %\011%uWidlerSuite%sCP437.java
 %\011%uWidlerSuite%sNoiseObj.java
+%\011Scrapper%sMap%sZoneLayout.java
 %\011%uWidlerSuite%sAStarNode.java
 %\011%uWidlerSuite%sDijkstraMap.java
 %\011Scrapper%sGUI%sInfoPanel.java
@@ -87,7 +88,7 @@ s#l0
 %\011Scrapper%sAI%sBasicAI.java
 %\011%uWidlerSuite%sHexLine.java
 %\011Scrapper%sGUI%sTerminalPanel.java
-!2726;f
+!2762;f
 %\011%uWidlerSuite%sMovementScriptStep.java
 %\011%uWidlerSuite%sUnboundTile.java
 %\011Scrapper%sMap%sExitTile.java
@@ -103,6 +104,7 @@ s#l0
 %\011%uWidlerSuite%sShadowFoV.java
 %\011%uWidlerSuite%sCP437.java
 %\011%uWidlerSuite%sNoiseObj.java
+%\011Scrapper%sMap%sZoneLayout.java
 %\011%uWidlerSuite%sAStarNode.java
 %\011%uWidlerSuite%sDijkstraMap.java
 %\011Scrapper%sGUI%sInfoPanel.java

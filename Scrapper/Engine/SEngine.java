@@ -7,6 +7,7 @@ import Scrapper.AI.*;
 import java.util.*;
 import javax.swing.*;
 import java.util.logging.*;
+import WidlerSuite.*;
 
 public class SEngine
 {
@@ -17,6 +18,8 @@ public class SEngine
    private static SFullPanel fullPanel = null;
    private static int uniqueIDIndex = 0;
    private static Vector<Zone> zoneList = new Vector<Zone>();
+   
+   public static SquirrelRNG rng = new SquirrelRNG();
    
    public static void setPlayer(SActor p){player = p;}
    public static void setCurZone(Zone z){curZone = z;}

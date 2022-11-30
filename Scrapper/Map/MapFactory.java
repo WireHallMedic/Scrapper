@@ -20,11 +20,47 @@ public class MapFactory implements MapConstants
    }
    
    // returns an int to be used as the pathNum for exit tiles
-   public static int getPathKey(Region a, Region b)
+   public static int getPathKey(Region a, Region b, int lowerFloorLevel)
    {
       int x = Math.min(a.ordinal(), b.ordinal());
       int y = Math.max(a.ordinal(), b.ordinal());
-      return pathKeyArr[x][y];
+      return (pathKeyArr[x][y] * 10) + lowerFloorLevel;
+   }
+   
+   public static int[] getExitList(Region region, int level)
+   {
+      Vector<Integer> keyList = new Vector<Integer>();
+      switch(region)
+      {
+         case DOCKS        :
+                           break;
+         case DISTRIBUTION :
+                           break;
+         case TRANSIT      :
+                           break;
+         case QUARTERS     :
+                           break;
+         case SECURITY     :
+                           break;
+         case ENGINEERING  :
+                           break;
+         case LABS         :
+                           break;
+         case OPERATIONS   :
+                           break;
+         case BRIG         :
+                           break;
+         case REACTOR      :
+                           break;
+         case SECURE_LABS  :
+                           break;
+         case BRIDGE       :
+                           break;
+      }
+      int[] returnList = new int[keyList.size()];
+      for(int i = 0; i < keyList.size(); i++)
+         returnList[i] = keyList.elementAt(i);
+      return returnList;
    }
    
    
