@@ -9,6 +9,8 @@ public class ZoneLayout
    public static int labsHeight;
    public static int quartersHeight;
    public static int securityHeight;
+   public static int distributionHeight = 3;
+   public static int opsHeight = 3;
    public static int reactorConnectionLevel;
    public static int brigConnectionLevel;
    public static int secLabConnectionLevel;
@@ -40,7 +42,7 @@ public class ZoneLayout
      reactorConnectionLevel = SEngine.rng.nextInt() % engineeringHeight;
      brigConnectionLevel = SEngine.rng.nextInt() % securityHeight;
      secLabConnectionLevel = SEngine.rng.nextInt() % labsHeight;
-     bridgeConnectionLevel = SEngine.rng.nextInt() % 3;
+     bridgeConnectionLevel = SEngine.rng.nextInt() % opsHeight;
      
      return true;
    }

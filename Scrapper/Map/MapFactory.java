@@ -33,29 +33,97 @@ public class MapFactory implements MapConstants
       switch(region)
       {
          case DOCKS        :
-                           break;
+            keyList.add(getPathKey(region, Region.DISTRIBUTION, 0));
+            break;
          case DISTRIBUTION :
-                           break;
+            if(level == 0)
+            {
+               keyList.add(getPathKey(region, Region.DOCKS, 0));
+               keyList.add(getPathKey(region, Region.TRANSIT, 0));
+            }
+            else
+               keyList.add(getPathKey(region, region, level - 1));
+            if(level < ZoneLayout.distributionHeight - 1)
+               keyList.add(getPathKey(region, region, level));
+            break;
          case TRANSIT      :
-                           break;
+            keyList.add(getPathKey(region, Region.DISTRIBUTION, 0));
+            keyList.add(getPathKey(region, Region.QUARTERS, 0));
+            keyList.add(getPathKey(region, Region.OPERATIONS, 0));
+            keyList.add(getPathKey(region, Region.SECURITY, 0));
+            keyList.add(getPathKey(region, Region.LABS, 0));
+            keyList.add(getPathKey(region, Region.ENGINEERING, 0));
+            break;
          case QUARTERS     :
-                           break;
+            if(level == 0)
+            {
+               keyList.add(getPathKey(region, Region.TRANSIT, 0));
+            }
+            else
+               keyList.add(getPathKey(region, region, level - 1));
+            if(level < ZoneLayout.quartersHeight - 1)
+               keyList.add(getPathKey(region, region, level));
+            break;
          case SECURITY     :
-                           break;
+            if(level == 0)
+            {
+               keyList.add(getPathKey(region, Region.TRANSIT, 0));
+            }
+            else
+               keyList.add(getPathKey(region, region, level - 1));
+            if(level < ZoneLayout.securityHeight - 1)
+               keyList.add(getPathKey(region, region, level));
+            if(level == ZoneLayout.brigConnectionLevel)
+               keyList.add(getPathKey(region, Region.BRIG, level));
+            break;
          case ENGINEERING  :
-                           break;
+            if(level == 0)
+            {
+               keyList.add(getPathKey(region, Region.TRANSIT, 0));
+            }
+            else
+               keyList.add(getPathKey(region, region, level - 1));
+            if(level < ZoneLayout.engineeringHeight - 1)
+               keyList.add(getPathKey(region, region, level));
+            if(level == ZoneLayout.reactorConnectionLevel)
+               keyList.add(getPathKey(region, Region.REACTOR, level));
+            break;
          case LABS         :
-                           break;
+            if(level == 0)
+            {
+               keyList.add(getPathKey(region, Region.TRANSIT, 0));
+            }
+            else
+               keyList.add(getPathKey(region, region, level - 1));
+            if(level < ZoneLayout.labsHeight - 1)
+               keyList.add(getPathKey(region, region, level));
+            if(level == ZoneLayout.secLabConnectionLevel)
+               keyList.add(getPathKey(region, Region.SECURE_LABS, level));
+            break;
          case OPERATIONS   :
-                           break;
+            if(level == 0)
+            {
+               keyList.add(getPathKey(region, Region.TRANSIT, 0));
+            }
+            else
+               keyList.add(getPathKey(region, region, level - 1));
+            if(level < ZoneLayout.opsHeight - 1)
+               keyList.add(getPathKey(region, region, level));
+            if(level == ZoneLayout.bridgeConnectionLevel)
+               keyList.add(getPathKey(region, Region.BRIDGE, level));
+            break;
          case BRIG         :
-                           break;
+            keyList.add(getPathKey(region, Region.SECURITY, ZoneLayout.brigConnectionLevel));
+            break;
          case REACTOR      :
-                           break;
+            keyList.add(getPathKey(region, Region.ENGINEERING, ZoneLayout.reactorConnectionLevel));
+            break;
          case SECURE_LABS  :
-                           break;
+            keyList.add(getPathKey(region, Region.LABS, ZoneLayout.secLabConnectionLevel));
+            break;
          case BRIDGE       :
-                           break;
+            keyList.add(getPathKey(region, Region.OPERATIONS, ZoneLayout.bridgeConnectionLevel));
+            break;
       }
       int[] returnList = new int[keyList.size()];
       for(int i = 0; i < keyList.size(); i++)
@@ -87,59 +155,25 @@ public class MapFactory implements MapConstants
    public static Vector<Zone> getDummyZoneList()
    {
       Vector<Zone> list = new Vector<Zone>();
-      int docksDistro0 = SEngine.getUniqueID();
-      int distro0Distro1 = SEngine.getUniqueID();
-      int distro1Distro2 = SEngine.getUniqueID();
-      int distro2transit = SEngine.getUniqueID();
-      int transitQuarters0 = SEngine.getUniqueID();
-      int transitOps0 = SEngine.getUniqueID();
-      int transitSecurity0 = SEngine.getUniqueID();
-      int transitLabs0 = SEngine.getUniqueID();
-      int transitEng0 = SEngine.getUniqueID();
-      int quarters0Quarters1 = SEngine.getUniqueID();
-      int quarters1Quarters2 = SEngine.getUniqueID();
-      int ops0Ops1 = SEngine.getUniqueID();
-      int ops1Ops2 = SEngine.getUniqueID();
-      int ops2Bridge = SEngine.getUniqueID();
-      int eng0Eng1 = SEngine.getUniqueID();
-      int eng1Eng2 = SEngine.getUniqueID();
-      int eng2Reactor = SEngine.getUniqueID();
-      int labs0Labs1 = SEngine.getUniqueID();
-      int labs1Labs2 = SEngine.getUniqueID();
-      int labs2SecLabs = SEngine.getUniqueID();
-      int sec0Sec1 = SEngine.getUniqueID();
-      int sec1Sec2 = SEngine.getUniqueID();
-      int sec2Brig = SEngine.getUniqueID();
+      list.add(getDummyZone("Docks", getExitList(Region.DOCKS, 0)));
+      for(int i = 0; i < ZoneLayout.labsHeight; i++)
+         list.add(getDummyZone("Labs Level " + (i + 1), getExitList(Region.LABS, i)));
+      for(int i = 0; i < ZoneLayout.quartersHeight; i++)
+         list.add(getDummyZone("Quarters Level " + (i + 1), getExitList(Region.QUARTERS, i)));
+      for(int i = 0; i < ZoneLayout.securityHeight; i++)
+         list.add(getDummyZone("Security Level " + (i + 1), getExitList(Region.SECURITY, i)));
+      for(int i = 0; i < ZoneLayout.engineeringHeight; i++)
+         list.add(getDummyZone("Engineering Level " + (i + 1), getExitList(Region.ENGINEERING, i)));
+      for(int i = 0; i < ZoneLayout.distributionHeight; i++)
+         list.add(getDummyZone("Distribution Level " + (i + 1), getExitList(Region.DISTRIBUTION, i)));
+      for(int i = 0; i < ZoneLayout.opsHeight; i++)
+         list.add(getDummyZone("Operations Level " + (i + 1), getExitList(Region.OPERATIONS, i)));
+      list.add(getDummyZone("Transit Level", getExitList(Region.TRANSIT, 0)));
+      list.add(getDummyZone("The Brig", getExitList(Region.BRIG, 0)));
+      list.add(getDummyZone("The Bridge", getExitList(Region.BRIDGE, 0)));
+      list.add(getDummyZone("The Secure Labs", getExitList(Region.SECURE_LABS, 0)));
+      list.add(getDummyZone("The Reactor", getExitList(Region.REACTOR, 0)));
       
-      int[] arr = {-1};
-      int[] arr2 = {-1, -1};
-      int[] arr6 = {-1, -1, -1, -1, -1, -1};
-      arr[0] = docksDistro0;
-      list.add(getDummyZone("Docks", arr));
-      arr2[0] = docksDistro0;
-      arr2[1] = distro0Distro1;
-      list.add(getDummyZone("Distro 0", arr2));
-      arr2[0] = distro0Distro1;
-      arr2[1] = distro1Distro2;
-      list.add(getDummyZone("Distro 1", arr2));
-      arr2[0] = distro1Distro2;
-      arr2[1] = distro2transit;
-      list.add(getDummyZone("Distro 2", arr2));
-      arr2[0] = transitQuarters0;
-      arr2[1] = quarters0Quarters1;
-      list.add(getDummyZone("Quarters 0", arr2));
-      arr2[0] = quarters0Quarters1;
-      arr2[1] = quarters1Quarters2;
-      list.add(getDummyZone("Quarters 1", arr2));
-      arr[0] = quarters1Quarters2;
-      list.add(getDummyZone("Quarters 2", arr));
-      arr6[0] = distro2transit;
-      arr6[1] = transitQuarters0;
-      arr6[2] = transitOps0;
-      arr6[3] = transitSecurity0;
-      arr6[4] = transitLabs0;
-      arr6[5] = transitEng0;
-      list.add(getDummyZone("Transit", arr6));
       return list;
    }
    
