@@ -10,15 +10,23 @@ public class Zone implements MapConstants, GUIConstants
    private MapTile[][] tile;
 	private MapTile oobTile;
    private Vector<ExitLoc> exitList;
+   private String name;
 
 
 	public MapTile getOOBTile(){return oobTile;}
+   public String getName(){return name;}
 
 
 	public void setOOBTile(MapTile o){oobTile = o;}
+   public void setName(String n){name = n;}
 
 
    public Zone(int width, int height)
+   {
+      this(width, height, "Unknown Zone");
+   }
+   
+   public Zone(int width, int height, String n)
    {
       tile = new MapTile[width][height];
       for(int x = 0; x < width; x++)
@@ -28,6 +36,7 @@ public class Zone implements MapConstants, GUIConstants
       }
       oobTile = new MapTile(TileBase.NULL);
       exitList = new Vector<ExitLoc>();
+      name = n;
    }
    
    public int width()

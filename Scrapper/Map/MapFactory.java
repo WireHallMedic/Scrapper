@@ -8,7 +8,7 @@ public class MapFactory implements MapConstants
    public static Zone getDummyZone(String name, int[] exitPathList)
    {
       int size = 20;
-      Zone z = new Zone(size, size);
+      Zone z = new Zone(size, size, name);
       
       addBorder(z, new MapTile(TileBase.HIGH_WALL));
       

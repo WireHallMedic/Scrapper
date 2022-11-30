@@ -87,6 +87,7 @@ public class SEngine
       {
          getPlayer().setLoc(destZone.getExitLoc(pathNum));
          setCurZone(destZone);
+         InfoPanel.addMessage("Now entering " + destZone.getName() + ".");
       }
    }
    
