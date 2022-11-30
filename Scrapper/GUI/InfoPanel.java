@@ -59,8 +59,15 @@ public class InfoPanel extends RogueTilePanel implements GUIConstants
          newMessage = null;
          messageList.removeElementAt(MAX_MESSAGES_DISPLAYED);
          clearMessageBox();
+         Color fgColor = DEFAULT_FOREGROUND_COLOR;
+         Color bgColor = DEFAULT_BACKGROUND_COLOR;
          for(int i = 0; i < MAX_MESSAGES_DISPLAYED; i++)
-            write(writeOriginX, writeOriginY + i, messageList.elementAt(i), columns() - 2, 1);
+         {
+            fgColor = DEFAULT_FOREGROUND_COLOR;
+            for(int j = 0; j < i; j++)
+               fgColor = fgColor.darker();
+            write(writeOriginX, writeOriginY + i, messageList.elementAt(i), fgColor.getRGB(), bgColor.getRGB(), columns() - 2, 1);
+         }
       }
    }
    
