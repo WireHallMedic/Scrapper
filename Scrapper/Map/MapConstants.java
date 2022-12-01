@@ -4,30 +4,32 @@ public interface MapConstants
 {
    public enum TileBase
    {
-      NULL              (' ', false, false, false, false),
-      VOID              (' ', true, false, true, false),
-      CLEAR             (250, true, true, true, false),     // centered dot
-      LOW_DIFFICULT     (',', true, true, true, false),
-      HIGH_WALL         ('#', false, false, false, false),
-      LOW_WALL          ('=', true, false, true, false),
-      SHALLOW_LIQUID    ('~', true, false, true, true),
-      DEEP_LIQUID       (247, true, false, true, true),     // approximate sign
-      BARS              (':', true, false, false, false),
-      CLOSED_DOOR       ('|', false, false, false, false),
-      OPEN_DOOR         ('/', true, true, true, false),
-      UNFLIPPED_SWITCH  ('!', true, false, false, false),
-      FLIPPED_SWITCH    (173, true, false, false, false),   // inverted !
-      TERMINAL          (234, false, false, true, false),   // omega
-      EXIT              ('&', true, true, true, false);    
-            
+      NULL              (' ', "", false, false, false, false),
+      VOID              (' ', "Pit", true, false, true, false),
+      CLEAR             (250, "Clear", true, true, true, false),     // centered dot
+      LOW_DIFFICULT     (',', "Rubble", true, true, true, false),
+      HIGH_WALL         ('#', "Wall", false, false, false, false),
+      LOW_WALL          ('=', "Low Wall", true, false, true, false),
+      SHALLOW_LIQUID    ('~', "Shallow Water", true, false, true, true),
+      DEEP_LIQUID       (247, "Deep Water", true, false, true, true),     // approximate sign
+      BARS              (':', "Bars", true, false, false, false),
+      CLOSED_DOOR       ('|', "Door", false, false, false, false),
+      OPEN_DOOR         ('/', "Door", true, true, true, false),
+      UNFLIPPED_SWITCH  ('!', "Switch", true, false, false, false),
+      FLIPPED_SWITCH    (173, "Switch", true, false, false, false),   // inverted !
+      TERMINAL          (234, "Terminal", false, false, true, false),   // omega
+      EXIT              ('&', "Exit", true, true, true, false);    
+      
+      public String name;
       public int iconIndex;
       public boolean transparent;
       public boolean lowPassable;
       public boolean highPassable;
       public boolean liquid;
       
-      private TileBase(int ii, boolean t, boolean lp, boolean hp, boolean l)
+      private TileBase(int ii, String n, boolean t, boolean lp, boolean hp, boolean l)
       {
+         name = n;
          iconIndex = ii;
          transparent = t;
          lowPassable = lp;

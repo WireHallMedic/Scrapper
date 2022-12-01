@@ -6,22 +6,26 @@ import Scrapper.Actor.*;
 
 public class MapTile implements MapConstants, GUIConstants
 {
+   private String name;
 	private TileBase tileBase;
 	private Color fgColor;
 	private Color bgColor;
 
 
+   public String getName(){return name;}
 	public TileBase getTileBase(){return tileBase;}
 	public Color getFGColor(){return fgColor;}
 	public Color getBGColor(){return bgColor;}
 
 
+   public void setName(String n){name = n;}
 	public void setTileBase(TileBase b){tileBase = b;}
 	public void setFGColor(Color f){fgColor = f;}
 	public void setBGColor(Color b){bgColor = b;}
 
    public MapTile(TileBase base)
    {
+      name = "";
       tileBase = base;
       fgColor = DEFAULT_FOREGROUND_COLOR;
       bgColor = DEFAULT_FLOOR_COLOR;
