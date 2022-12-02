@@ -12,7 +12,7 @@ s#i0
 s#k0
 s#j0
 s#l0
-!2762;g
+!2793;g
 %\011%uWidlerSuite%sMovementScriptStep.java
 %\011%uWidlerSuite%sUnboundTile.java
 %\011Scrapper%sMap%sExitTile.java
@@ -48,6 +48,7 @@ s#l0
 %\011%uWidlerSuite%sWSConstants.java
 %\011Scrapper%sMap%sMapConstants.java
 %\011Scrapper%sMap%sZone.java
+%\011Scrapper%sItem%sItem.java
 %\011%uWidlerSuite%sDijkstraRing.java
 %\011%uWidlerSuite%sObfuscator.java
 %\011%uWidlerSuite%sLineIntersection.java
@@ -88,7 +89,7 @@ s#l0
 %\011Scrapper%sAI%sBasicAI.java
 %\011%uWidlerSuite%sHexLine.java
 %\011Scrapper%sGUI%sTerminalPanel.java
-!2762;f
+!2793;f
 %\011%uWidlerSuite%sMovementScriptStep.java
 %\011%uWidlerSuite%sUnboundTile.java
 %\011Scrapper%sMap%sExitTile.java
@@ -124,6 +125,7 @@ s#l0
 %\011%uWidlerSuite%sWSConstants.java
 %\011Scrapper%sMap%sMapConstants.java
 %\011Scrapper%sMap%sZone.java
+%\011Scrapper%sItem%sItem.java
 %\011%uWidlerSuite%sDijkstraRing.java
 %\011%uWidlerSuite%sObfuscator.java
 %\011%uWidlerSuite%sLineIntersection.java

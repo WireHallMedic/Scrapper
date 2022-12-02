@@ -51,12 +51,12 @@ public class MapFactory implements MapConstants
             }
             break;
          case TRANSIT      :
-            exitList.add(new ExitInfo(getPathKey(region, Region.DISTRIBUTION, 0), "Exit to Distrobution Level 1"));
-            exitList.add(new ExitInfo(getPathKey(region, Region.QUARTERS, 0), "Exit to Quarters Level 1"));
-            exitList.add(new ExitInfo(getPathKey(region, Region.OPERATIONS, 0), "Exit to Operations Level 1"));
-            exitList.add(new ExitInfo(getPathKey(region, Region.SECURITY, 0), "Exit to Security Level 1"));
-            exitList.add(new ExitInfo(getPathKey(region, Region.LABS, 0), "Exit to Labs Level 1"));
-            exitList.add(new ExitInfo(getPathKey(region, Region.ENGINEERING, 0), "Exit to Engineering Level 1"));
+            exitList.add(new ExitInfo(getPathKey(region, Region.DISTRIBUTION, 0), "Exit to " + Region.DISTRIBUTION.name + " Level 1"));
+            exitList.add(new ExitInfo(getPathKey(region, Region.QUARTERS, 0), "Exit to " + Region.QUARTERS.name + " Level 1"));
+            exitList.add(new ExitInfo(getPathKey(region, Region.OPERATIONS, 0), "Exit to " + Region.OPERATIONS.name + " Level 1"));
+            exitList.add(new ExitInfo(getPathKey(region, Region.SECURITY, 0), "Exit to " + Region.SECURITY.name + " Level 1"));
+            exitList.add(new ExitInfo(getPathKey(region, Region.LABS, 0), "Exit to " + Region.LABS.name + " Level 1"));
+            exitList.add(new ExitInfo(getPathKey(region, Region.ENGINEERING, 0), "Exit to " + Region.ENGINEERING.name + " Level 1"));
             break;
          case QUARTERS     :
             if(level == 0)
@@ -145,20 +145,20 @@ public class MapFactory implements MapConstants
             }
             break;
          case BRIG         :
-            exitList.add(new ExitInfo(getPathKey(region, Region.SECURITY, ZoneLayout.brigConnectionLevel), "Exit to " + Region.SECURITY.name +
-               " Level " + (ZoneLayout.brigConnectionLevel + 1)));
+            exitList.add(new ExitInfo(getPathKey(region, Region.SECURITY, ZoneLayout.brigConnectionLevel), 
+               "Exit to " + Region.SECURITY.name + " Level " + (ZoneLayout.brigConnectionLevel + 1)));
             break;
          case REACTOR      :
-            exitList.add(new ExitInfo(getPathKey(region, Region.ENGINEERING, ZoneLayout.reactorConnectionLevel), "Exit to " + Region.ENGINEERING.name +
-               " Level " + (ZoneLayout.reactorConnectionLevel + 1)));
+            exitList.add(new ExitInfo(getPathKey(region, Region.ENGINEERING, ZoneLayout.reactorConnectionLevel), 
+               "Exit to " + Region.ENGINEERING.name + " Level " + (ZoneLayout.reactorConnectionLevel + 1)));
             break;
          case SECURE_LABS  :
-            exitList.add(new ExitInfo(getPathKey(region, Region.LABS, ZoneLayout.secLabConnectionLevel), "Exit to " + Region.LABS.name +
-               " Level " + (ZoneLayout.secLabConnectionLevel + 1)));
+            exitList.add(new ExitInfo(getPathKey(region, Region.LABS, ZoneLayout.secLabConnectionLevel), 
+               "Exit to " + Region.LABS.name + " Level " + (ZoneLayout.secLabConnectionLevel + 1)));
             break;
          case BRIDGE       :
-            exitList.add(new ExitInfo(getPathKey(region, Region.OPERATIONS, ZoneLayout.bridgeConnectionLevel), "Exit to " + Region.OPERATIONS.name +
-               " Level " + (ZoneLayout.bridgeConnectionLevel + 1)));
+            exitList.add(new ExitInfo(getPathKey(region, Region.OPERATIONS, ZoneLayout.bridgeConnectionLevel), 
+               "Exit to " + Region.OPERATIONS.name + " Level " + (ZoneLayout.bridgeConnectionLevel + 1)));
             break;
       }
       return exitList;
