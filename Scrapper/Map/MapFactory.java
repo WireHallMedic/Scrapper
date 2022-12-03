@@ -1,9 +1,10 @@
 package Scrapper.Map;
 
 import java.util.*;
+import Scrapper.Item.*;
 import Scrapper.Engine.*;
 
-public class MapFactory implements MapConstants
+public class MapFactory implements MapConstants, ItemConstants
 {
    private static final int[][] pathKeyArr = generatePathKeys();
    
