@@ -2,13 +2,14 @@ package Scrapper.AI;
 
 import Scrapper.GUI.*;
 import Scrapper.Map.*;
+import Scrapper.Item.*;
 import Scrapper.Actor.*;
 import Scrapper.Engine.*;
 import Scrapper.Ability.*;
 import WidlerSuite.*;
 import java.util.logging.*;
 
-public class BasicAI implements AbilityConstants, MapConstants
+public class BasicAI implements AbilityConstants, MapConstants, ItemConstants
 {	
 	private SActor self;
 	private int turnEnergy;
@@ -159,12 +160,25 @@ public class BasicAI implements AbilityConstants, MapConstants
          // note that trying a locked door still conusmes a turn, successful or not
          if(door.isLocked())
          {
+            // player tries to unlock door
             if(self.isPlayer())
             {
+               // quest item door
                if(door.requiresQuestItem())
                {
-                  InfoPanel.addMessage(door.getLockedBy().name + " required.");
+                  QuestItem key = door.getLockedBy();
+                  // has key, open door
+                  if(self.getInventory().hasQuestItem(key))
+                  {
+                     door.setLocked(false);
+                     door.toggle();
+                     InfoPanel.addMessage("Unlocked door with the " + door.getLockedBy().name + ".");
+                  }
+                  // doesn't have key
+                  else
+                     InfoPanel.addMessage(door.getLockedBy().name + " required.");
                }
+               // no key, just locked
                else
                {
                   InfoPanel.addMessage("The door is locked.");

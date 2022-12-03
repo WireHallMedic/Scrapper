@@ -17,4 +17,6 @@ public interface ItemConstants
          name = n;
       }
    }
+   
+   public static final int QUEST_ITEM_ICON_INDEX = '*';
 }
