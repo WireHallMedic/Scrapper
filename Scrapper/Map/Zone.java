@@ -2,6 +2,7 @@ package Scrapper.Map;
 
 import Scrapper.GUI.*;
 import Scrapper.Actor.*;
+import Scrapper.Engine.*;
 import WidlerSuite.*;
 import java.util.*;
 
@@ -118,7 +119,11 @@ public class Zone implements MapConstants, GUIConstants
          for(int x = loc.x - 1; x <= loc.x + 1; x++)
          for(int y = loc.y - 1; y <= loc.y + 1; y++)
          {
-         
+            if(SEngine.isActorAt(x, y))
+            {
+               door.open();
+               return;
+            }
          }
          door.close();
       }

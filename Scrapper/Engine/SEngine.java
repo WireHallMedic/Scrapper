@@ -137,6 +137,7 @@ public class SEngine
          {
             curAI.act();
             curActor.endTurn();
+            curZone.updateAutomaticDoors();
             incrementActor();
          }
       }
