@@ -154,8 +154,8 @@ public class BasicAI implements AbilityConstants, MapConstants
       newY += pendingDirection.y;
       if(SEngine.getCurZone().getTile(newX, newY) instanceof ToggleTile)
       {
-      ToggleTile tog = (ToggleTile)SEngine.getCurZone().getTile(newX, newY);
-      tog.toggle();
+         ToggleTile tog = (ToggleTile)SEngine.getCurZone().getTile(newX, newY);
+         tog.toggle();
       }
       if(SEngine.getCurZone().getTile(newX, newY) instanceof TerminalTile)
       {

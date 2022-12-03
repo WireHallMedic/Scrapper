@@ -164,6 +164,26 @@ public class MapFactory implements MapConstants
       return exitList;
    }
    
+   public static Zone getTestingZone()
+   {
+      int size = 20;
+      Zone z = new Zone(size, size, "Testing Zone");
+      
+      addBorder(z, new MapTile(TileBase.HIGH_WALL));
+      
+      DoorTile door = MapTileFactory.getDoor();
+      z.setTile(3, 4, door);
+      door = MapTileFactory.getDoor();
+      door.setLocked(true);
+      z.setTile(5, 4, door);
+      door = MapTileFactory.getDoor();
+      door.setLocked(true);
+      z.setTile(7, 4, door);
+      
+      z.postProcess();
+      return z;
+   }
+   
    
    public static Zone getDummyZone(String name, Vector<ExitInfo> exitPathList)
    {
