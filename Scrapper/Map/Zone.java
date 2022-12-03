@@ -10,7 +10,7 @@ public class Zone implements MapConstants, GUIConstants
    private MapTile[][] tile;
 	private MapTile oobTile;
    private Vector<ExitLoc> exitList;
-   private Vector<DoorTile> automaticDoorList;
+   private Vector<Coord> automaticDoorList;
    private String name;
 
 
@@ -37,7 +37,7 @@ public class Zone implements MapConstants, GUIConstants
       }
       oobTile = new MapTile(TileBase.NULL);
       exitList = new Vector<ExitLoc>();
-      automaticDoorList = new Vector<DoorTile>();
+      automaticDoorList = new Vector<Coord>();
       name = n;
    }
    
@@ -109,6 +109,21 @@ public class Zone implements MapConstants, GUIConstants
       return null;
    }
    
+   public void updateAutomaticDoors()
+   {
+      for(int i = 0; i < automaticDoorList.size(); i++)
+      {
+         Coord loc = automaticDoorList.elementAt(i);
+         DoorTile door = (DoorTile)getTile(loc.x, loc.y);
+         for(int x = loc.x - 1; x <= loc.x + 1; x++)
+         for(int y = loc.y - 1; y <= loc.y + 1; y++)
+         {
+         
+         }
+         door.close();
+      }
+   }
+   
    public void postProcess()
    {
       for(int x = 0; x < width(); x++)
@@ -123,7 +138,7 @@ public class Zone implements MapConstants, GUIConstants
          {
             DoorTile doorTile = (DoorTile)getTile(x, y);
             if(doorTile.isAutomatic())
-               automaticDoorList.add(doorTile);
+               automaticDoorList.add(new Coord(x, y));
          }
       }
    }

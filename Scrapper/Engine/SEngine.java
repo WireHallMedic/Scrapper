@@ -60,6 +60,22 @@ public class SEngine
       actorList = new Vector<SActor>();
    }
    
+   public static boolean isActorAt(int x, int y)
+   {
+      return getActorAt(x, y) != null;
+   }
+   
+   public static SActor getActorAt(int x, int y)
+   {
+      for(int i = 0; i < actorList.size(); i++)
+      {
+         if(actorList.elementAt(i).getX() == x &&
+            actorList.elementAt(i).getY() == y)
+            return actorList.elementAt(i);
+      }
+      return null;
+   }
+   
    public static void resolveStepTaken(SActor actor)
    {
       if(actor == getPlayer())
