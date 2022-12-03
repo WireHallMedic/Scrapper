@@ -7,7 +7,8 @@ public class ItemFactory implements ItemConstants, GUIConstants
 {
    public static Item getQuestItem(QuestItem questItemConstant)
    {
-      Item item = new Item(String questItemConstant.name, QUEST_ITEM_ICON_INDEX));
+      Item item = new Item(questItemConstant.name, QUEST_ITEM_ICON_INDEX);
       item.setQuestItemTag(questItemConstant);
+      return item;
    }
 }

@@ -7,7 +7,7 @@ import Scrapper.Item.*;
 import Scrapper.Engine.*;
 import Scrapper.Ability.*;
 
-public class SActor implements ActorConstants, AbilityConstants
+public class SActor implements ActorConstants, AbilityConstants, ItemConstants
 {
 	protected UnboundTile sprite;
    protected boolean flies;
@@ -100,6 +100,7 @@ public class SActor implements ActorConstants, AbilityConstants
       a.sprite.setIconIndex('@');
       a.sprite.setFGColor(GUIConstants.PRIMARY_COLOR.getRGB());
       a.setAI(new PlayerAI(a));
+      a.getInventory().add(ItemFactory.getQuestItem(QuestItem.SECURITY_KEYCARD));
       return a;
    }
    
