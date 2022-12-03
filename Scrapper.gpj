@@ -12,7 +12,7 @@ s#i0
 s#k0
 s#j0
 s#l0
-!2833;g
+!2869;g
 %\011%uWidlerSuite%sMovementScriptStep.java
 %\011%uWidlerSuite%sUnboundTile.java
 %\011Scrapper%sMap%sExitTile.java
@@ -61,6 +61,7 @@ s#l0
 %\011%uWidlerSuite%sSquirrelRNG.java
 %\011%uWidlerSuite%sUnboundString.java
 %\011%uWidlerSuite%sVect.java
+%\011Scrapper%sItem%sInventory.java
 %\011%uWidlerSuite%sRectLine.java
 %\011Scrapper%sScrapperMain.java
 %\011Scrapper%sMap%sTerminalTile.java
@@ -90,7 +91,7 @@ s#l0
 %\011Scrapper%sAI%sBasicAI.java
 %\011%uWidlerSuite%sHexLine.java
 %\011Scrapper%sGUI%sTerminalPanel.java
-!2833;f
+!2869;f
 %\011%uWidlerSuite%sMovementScriptStep.java
 %\011%uWidlerSuite%sUnboundTile.java
 %\011Scrapper%sMap%sExitTile.java
@@ -139,6 +140,7 @@ s#l0
 %\011%uWidlerSuite%sSquirrelRNG.java
 %\011%uWidlerSuite%sUnboundString.java
 %\011%uWidlerSuite%sVect.java
+%\011Scrapper%sItem%sInventory.java
 %\011%uWidlerSuite%sRectLine.java
 %\011Scrapper%sScrapperMain.java
 %\011Scrapper%sMap%sTerminalTile.java
