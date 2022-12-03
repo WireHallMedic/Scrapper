@@ -3,6 +3,7 @@ package Scrapper.Actor;
 import WidlerSuite.*;
 import Scrapper.AI.*;
 import Scrapper.GUI.*;
+import Scrapper.Item.*;
 import Scrapper.Engine.*;
 import Scrapper.Ability.*;
 
@@ -15,6 +16,7 @@ public class SActor implements ActorConstants, AbilityConstants
    protected int visionRadius;
    protected ShadowFoVRect fov;
    private boolean takingTurn;
+   private Inventory inventory;
 
 
 	public UnboundTile getSprite(){return sprite;}
@@ -22,12 +24,14 @@ public class SActor implements ActorConstants, AbilityConstants
    public boolean isSwimming(){return swims;}
    public BasicAI getAI(){return ai;}
    public int getVisionRadius(){return visionRadius;}
+   public Inventory getInventory(){return inventory;}
 
 	public void setSprite(UnboundTile s){sprite = s;}
    public void setFlying(boolean f){flies = f;}
    public void setSwimming(boolean s){swims = s;}
    public void setAI(BasicAI newAI){ai = newAI;}
    public void setVisionRadius(int v){visionRadius = v;}
+   public void setInventory(Inventory i){inventory = i;}
 
    public SActor()
    {
@@ -39,6 +43,7 @@ public class SActor implements ActorConstants, AbilityConstants
       fov = new ShadowFoVRect(dummyVisionArray);
       ai = new BasicAI(this);
       takingTurn = false;
+      inventory = new Inventory(this);
    }
    
    public boolean isPlayer()
