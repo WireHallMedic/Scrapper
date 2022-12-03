@@ -156,14 +156,23 @@ public class BasicAI implements AbilityConstants, MapConstants
       if(SEngine.getCurZone().getTile(newX, newY) instanceof DoorTile)
       {
          DoorTile door = (DoorTile)SEngine.getCurZone().getTile(newX, newY);
+         // note that trying a locked door still conusmes a turn, successful or not
          if(door.isLocked())
          {
             if(self.isPlayer())
             {
-               InfoPanel.addMessage("This door is locked.");
-               // note that trying a locked door still conusmes a turn
+               if(door.requiresQuestItem())
+               {
+                  InfoPanel.addMessage(door.getLockedBy().name + " required.");
+               }
+               else
+               {
+                  InfoPanel.addMessage("The door is locked.");
+               }
+               
             }
          }
+         // unlocked
          else
          {
             door.toggle();

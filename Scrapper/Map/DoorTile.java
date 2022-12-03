@@ -9,14 +9,17 @@ public class DoorTile extends ToggleTile implements ItemConstants
 {
 	private boolean locked;
 	private QuestItem lockedBy;
+	private boolean automatic;
 
 
 	public boolean isLocked(){return locked;}
 	public QuestItem getLockedBy(){return lockedBy;}
+	public boolean isAutomatic(){return automatic;}
 
 
 	public void setLocked(boolean l){locked = l;}
 	public void setLockedBy(QuestItem l){lockedBy = l;}
+	public void setAutomatic(boolean a){automatic = a;}
 
 
    public DoorTile()
@@ -31,6 +34,24 @@ public class DoorTile extends ToggleTile implements ItemConstants
    {
       if(!locked)
          super.toggle();
+   }
+   
+   public void open()
+   {
+      if(!locked)
+      {
+         if(activeState == aState)
+            toggle();
+      }
+   }
+   
+   public void close()
+   {
+      if(!locked)
+      {
+         if(activeState == bState)
+            toggle();
+      }
    }
    
    public void forceToggle()

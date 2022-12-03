@@ -172,12 +172,15 @@ public class MapFactory implements MapConstants
       addBorder(z, new MapTile(TileBase.HIGH_WALL));
       
       DoorTile door = MapTileFactory.getDoor();
+      z.setTile(1, 4, door);
+      door = MapTileFactory.getDoor();
       z.setTile(3, 4, door);
       door = MapTileFactory.getDoor();
       door.setLocked(true);
       z.setTile(5, 4, door);
       door = MapTileFactory.getDoor();
       door.setLocked(true);
+      door.setLockedBy(QuestItem.SECURITY_KEYCARD);
       z.setTile(7, 4, door);
       
       z.postProcess();
