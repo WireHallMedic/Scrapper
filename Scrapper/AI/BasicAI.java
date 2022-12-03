@@ -1,5 +1,6 @@
 package Scrapper.AI;
 
+import Scrapper.GUI.*;
 import Scrapper.Map.*;
 import Scrapper.Actor.*;
 import Scrapper.Engine.*;
@@ -152,12 +153,28 @@ public class BasicAI implements AbilityConstants, MapConstants
       int newY = self.getY();
       newX += pendingDirection.x;
       newY += pendingDirection.y;
-      if(SEngine.getCurZone().getTile(newX, newY) instanceof ToggleTile)
+      if(SEngine.getCurZone().getTile(newX, newY) instanceof DoorTile)
+      {
+         DoorTile door = (DoorTile)SEngine.getCurZone().getTile(newX, newY);
+         if(door.isLocked())
+         {
+            if(self.isPlayer())
+            {
+               InfoPanel.addMessage("This door is locked.");
+               // note that trying a locked door still conusmes a turn
+            }
+         }
+         else
+         {
+            door.toggle();
+         }
+      }
+      else if(SEngine.getCurZone().getTile(newX, newY) instanceof ToggleTile)
       {
          ToggleTile tog = (ToggleTile)SEngine.getCurZone().getTile(newX, newY);
          tog.toggle();
       }
-      if(SEngine.getCurZone().getTile(newX, newY) instanceof TerminalTile)
+      else if(SEngine.getCurZone().getTile(newX, newY) instanceof TerminalTile)
       {
          TerminalTile terminalTile = (TerminalTile)SEngine.getCurZone().getTile(newX, newY);
          SEngine.setTerminalPanelVisible(terminalTile);

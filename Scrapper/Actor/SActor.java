@@ -41,6 +41,11 @@ public class SActor implements ActorConstants, AbilityConstants
       takingTurn = false;
    }
    
+   public boolean isPlayer()
+   {
+      return this == SEngine.getPlayer();
+   }
+   
    // beginning of turn stuff
    public void startTurn()
    {
