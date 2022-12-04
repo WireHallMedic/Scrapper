@@ -15,7 +15,7 @@ public class ScrapperMain
    public static void main(String[] args)
    {
       SFrame frame = new SFrame();
-       SEngine engine = new SEngine();
+      SEngine engine = new SEngine();
       if(TEST_VERSION)
       {
          Logger.getGlobal().info("Running in test mode");
