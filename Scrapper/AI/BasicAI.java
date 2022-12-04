@@ -148,6 +148,13 @@ public class BasicAI implements AbilityConstants, MapConstants, ItemConstants
       reduceTurnEnergy(AbilityConstants.NORMAL_SPEED);
    }
    
+   public void pickUp()
+   {
+      int newX = self.getX();
+      int newY = self.getY();
+      reduceTurnEnergy(AbilityConstants.NORMAL_SPEED);
+   }
+   
    public void useEnvironment()
    {
       int newX = self.getX();

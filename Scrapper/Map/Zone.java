@@ -1,6 +1,7 @@
 package Scrapper.Map;
 
 import Scrapper.GUI.*;
+import Scrapper.Item.*;
 import Scrapper.Actor.*;
 import Scrapper.Engine.*;
 import WidlerSuite.*;
@@ -9,6 +10,7 @@ import java.util.*;
 public class Zone implements MapConstants, GUIConstants
 {
    private MapTile[][] tile;
+   private Item[][] itemMap;
 	private MapTile oobTile;
    private Vector<ExitLoc> exitList;
    private Vector<Coord> automaticDoorList;
@@ -31,10 +33,12 @@ public class Zone implements MapConstants, GUIConstants
    public Zone(int width, int height, String n)
    {
       tile = new MapTile[width][height];
+      itemMap = new Item[width][height];
       for(int x = 0; x < width; x++)
       for(int y = 0; y < height; y++)
       {
          tile[x][y] = new MapTile(TileBase.CLEAR);
+         itemMap[x][y] = null;
       }
       oobTile = new MapTile(TileBase.NULL);
       exitList = new Vector<ExitLoc>();
@@ -127,6 +131,32 @@ public class Zone implements MapConstants, GUIConstants
          }
          door.close();
       }
+   }
+   
+   // item stuff
+   public boolean isItemAt(int x, int y)
+   {
+      return getItemAt(x, y) != null;
+   }
+   
+   public Item getItemAt(int x, int y)
+   {
+      if(isInBounds(x, y))
+         return itemMap[x][y];
+      return null;
+   }
+   
+   public Item takeItemAt(int x, int y)
+   {
+      Item item = getItemAt(x, y);
+      setItemAt(x, y, null);
+      return item;
+   }
+   
+   public void setItemAt(int x, int y, Item item)
+   {
+      if(isInBounds(x, y))
+         itemMap[x][y] = item;
    }
    
    public void postProcess()

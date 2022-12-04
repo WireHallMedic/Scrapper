@@ -9,6 +9,6 @@ public interface AbilityConstants
    
    public enum Action
    {
-      CONTEXTUAL, PASS_TURN, STEP, USE_ENVIRONMENT;
+      CONTEXTUAL, PASS_TURN, STEP, USE_ENVIRONMENT, PICK_UP;
    }
 }
