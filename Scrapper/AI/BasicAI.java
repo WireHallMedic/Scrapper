@@ -121,6 +121,12 @@ public class BasicAI implements AbilityConstants, MapConstants, ItemConstants
          case USE_ENVIRONMENT:
             useEnvironment();
             break;
+         case PICK_UP:
+            if(canPickUp())
+               pickUp();
+            else
+               tookAction = false;
+            break;
          default: 
             tookAction = false;
       }
@@ -148,10 +154,18 @@ public class BasicAI implements AbilityConstants, MapConstants, ItemConstants
       reduceTurnEnergy(AbilityConstants.NORMAL_SPEED);
    }
    
+   public boolean canPickUp()
+   {
+      if(SEngine.getCurZone().isItemAt(self.getX(), self.getY()))
+         return true;
+      return false;
+   }
+   
    public void pickUp()
    {
-      int newX = self.getX();
-      int newY = self.getY();
+      Item item = SEngine.getCurZone().takeItemAt(self.getX(), self.getY());
+      self.getInventory().add(item);
+      InfoPanel.addMessage("Picked up " + item.getName() + ".");
       reduceTurnEnergy(AbilityConstants.NORMAL_SPEED);
    }
    

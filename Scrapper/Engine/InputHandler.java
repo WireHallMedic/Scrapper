@@ -57,6 +57,22 @@ public class InputHandler implements AbilityConstants, MapConstants
          return;
       }
       
+      // pick up item
+      if(ke.getKeyCode() == KeyEvent.VK_G)
+      {
+         if(SEngine.getCurZone().isItemAt(newX, newY))
+         {
+            ai.setPendingAction(Action.PICK_UP);
+            ai.setPendingDirection(Direction.ORIGIN);
+         }
+         else
+         {
+            InfoPanel.addMessage("Nothing to pick up.");
+            cancelPlayerAction(false);
+         }
+         return;
+      }
+      
       // use environment follow-up
       if(ai.getPendingAction() == Action.USE_ENVIRONMENT && dir != null)
       {
