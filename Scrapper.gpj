@@ -12,7 +12,7 @@ s#i0
 s#k0
 s#j0
 s#l0
-!2948;g
+!2982;g
 %\011%uWidlerSuite%sMovementScriptStep.java
 %\011%uWidlerSuite%sUnboundTile.java
 %\011Scrapper%sMap%sExitTile.java
@@ -76,6 +76,7 @@ s#l0
 %\011Scrapper%sGUI%sSFullPanel.java
 %\011%uWidlerSuite%sBorderBuilder.java
 %\011Scrapper%sMap%sToggleTile.java
+%\011Scrapper%sMap%sExitInfo.java
 %\011%uWidlerSuite%sVoronoi.java
 %\011Scrapper%sEngine%sInputHandler.java
 %\011%uWidlerSuite%sSmoothCA.java
@@ -93,7 +94,7 @@ s#l0
 %\011Scrapper%sAI%sBasicAI.java
 %\011%uWidlerSuite%sHexLine.java
 %\011Scrapper%sGUI%sTerminalPanel.java
-!2948;f
+!2982;f
 %\011%uWidlerSuite%sMovementScriptStep.java
 %\011%uWidlerSuite%sUnboundTile.java
 %\011Scrapper%sMap%sExitTile.java
@@ -157,6 +158,7 @@ s#l0
 %\011Scrapper%sGUI%sSFullPanel.java
 %\011%uWidlerSuite%sBorderBuilder.java
 %\011Scrapper%sMap%sToggleTile.java
+%\011Scrapper%sMap%sExitInfo.java
 %\011%uWidlerSuite%sVoronoi.java
 %\011Scrapper%sEngine%sInputHandler.java
 %\011%uWidlerSuite%sSmoothCA.java
