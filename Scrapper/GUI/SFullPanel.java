@@ -15,6 +15,7 @@ public class SFullPanel extends JPanel implements GUIConstants
 {
    private MainGamePanel mainGamePanel;
    private TerminalPanel terminalPanel;
+   private InventoryPanel inventoryPanel;
    private TilePalette bigPalette;
    private TilePalette smallPalette;
    private Vector<JPanel> panelList;
@@ -43,11 +44,17 @@ public class SFullPanel extends JPanel implements GUIConstants
       this.add(terminalPanel);
       panelList.add(terminalPanel);
       
+      inventoryPanel = new InventoryPanel(this, smallPalette);
+      inventoryPanel.setLocation(0, 0);
+      this.add(inventoryPanel);
+      panelList.add(inventoryPanel);
+      
       setVisible(mainGamePanel);
       setVisible(true);
    }
    
    public void setMainGamePanelVisible(){setVisible(mainGamePanel);}
+   public void setInventoryPanelVisible(){setVisible(inventoryPanel);}
    
    public void setTerminalPanelVisible(TerminalTile terminalTile)
    {

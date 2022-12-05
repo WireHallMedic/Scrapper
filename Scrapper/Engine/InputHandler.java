@@ -15,6 +15,8 @@ public class InputHandler implements AbilityConstants, MapConstants
          handleMainGanePanelKeyInput(ke);
       if(SEngine.getCurPanel() instanceof TerminalPanel)
          handleTerminalPanelKeyInput(ke);
+      if(SEngine.getCurPanel() instanceof InventoryPanel)
+         handleInventoryPanelKeyInput(ke);
    }
    
    private static void handleMainGanePanelKeyInput(KeyEvent ke)
@@ -41,6 +43,13 @@ public class InputHandler implements AbilityConstants, MapConstants
          case KeyEvent.VK_NUMPAD3 :  newY++; newX++; dir = Direction.SOUTHEAST; break;
          case KeyEvent.VK_NUMPAD5 :  dir = Direction.ORIGIN; break;
          case KeyEvent.VK_BACK_QUOTE   :  doDebugAction(); break;
+      }
+      
+      // go to inventory panel
+      if(ke.getKeyCode() == KeyEvent.VK_I)
+      {
+         SEngine.setInventoryPanelVisible();
+         return;
       }
       
       // cancel player choice
@@ -115,6 +124,17 @@ public class InputHandler implements AbilityConstants, MapConstants
    }
    
    private static void handleTerminalPanelKeyInput(KeyEvent ke)
+   {
+      // cancel player choice
+      if(ke.getKeyCode() == KeyEvent.VK_ESCAPE ||
+         ke.getKeyCode() == KeyEvent.VK_ENTER ||
+         ke.getKeyCode() == KeyEvent.VK_SPACE)
+      {
+         SEngine.setMainGamePanelVisible();
+      }
+   }
+   
+   private static void handleInventoryPanelKeyInput(KeyEvent ke)
    {
       // cancel player choice
       if(ke.getKeyCode() == KeyEvent.VK_ESCAPE ||

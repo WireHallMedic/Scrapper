@@ -57,6 +57,9 @@ public class MapFactory implements MapConstants, ItemConstants
       door.setLockedBy(QuestItem.OPERATIONS_KEYCARD);
       z.setTile(9, 4, door);
       z.setItemAt(1, 1, ItemFactory.getQuestItem(QuestItem.SECURITY_KEYCARD));
+      z.setItemAt(1, 2, ItemFactory.getMockItem());
+      z.setItemAt(1, 3, ItemFactory.getMockItem());
+      z.setItemAt(1, 4, ItemFactory.getMockItem());
       
       z.postProcess();
       return z;
