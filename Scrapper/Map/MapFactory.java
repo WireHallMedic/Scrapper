@@ -60,6 +60,8 @@ public class MapFactory implements MapConstants, ItemConstants
       z.setItemAt(1, 2, ItemFactory.getMockItem());
       z.setItemAt(1, 3, ItemFactory.getMockItem());
       z.setItemAt(1, 4, ItemFactory.getMockItem());
+      MapTile terminal = MapTileFactory.getTerminal("Just a terminal.");
+      z.setTile(1, 0, terminal);
       
       z.postProcess();
       return z;

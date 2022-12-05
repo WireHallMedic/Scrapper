@@ -47,7 +47,7 @@ public class MapPanel extends RogueTilePanel implements GUIConstants
       for(int x = 0; x < MAP_PANEL_SIZE_TILES; x++)
       for(int y = 0; y < MAP_PANEL_SIZE_TILES; y++)
       {
-         MapTile tile;
+         STileObject tile;
          int iconIndex;
          Color fgColor;
          Color bgColor;
@@ -67,13 +67,13 @@ public class MapPanel extends RogueTilePanel implements GUIConstants
          {
             tile = zone.getOOBTile();
          }
-         iconIndex = tile.getTileBase().iconIndex;
+         iconIndex = tile.getIconIndex();
          fgColor = tile.getFGColor();
          bgColor = tile.getBGColor();
          if(item != null)
          {
-            iconIndex = item.getSprite().getIconIndex();
-            fgColor = new Color(item.getSprite().getFGColor());
+            iconIndex = item.getIconIndex();
+            fgColor = item.getFGColor();
          }
          setTile(x, y, iconIndex, fgColor, bgColor);
       }

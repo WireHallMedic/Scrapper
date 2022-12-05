@@ -4,41 +4,44 @@ import java.awt.*;
 import Scrapper.GUI.*;
 import Scrapper.Actor.*;
 
-public class MapTile implements MapConstants, GUIConstants
+public class MapTile implements MapConstants, GUIConstants, STileObject
 {
    private String name;
 	private TileBase tileBase;
 	private Color fgColor;
 	private Color bgColor;
+   private int iconIndex;
 
 
    public String getName(){return name;}
 	public TileBase getTileBase(){return tileBase;}
 	public Color getFGColor(){return fgColor;}
 	public Color getBGColor(){return bgColor;}
+   public int getIconIndex(){return iconIndex;}
 
 
    public void setName(String n){name = n;}
-	public void setTileBase(TileBase b){tileBase = b;}
+	public void setTileBase(TileBase b){tileBase = b; iconIndex = tileBase.iconIndex;}
 	public void setFGColor(Color f){fgColor = f;}
 	public void setBGColor(Color b){bgColor = b;}
+   public void setIconIndex(int i){iconIndex = i;}
 
    public MapTile(TileBase base)
    {
       name = "";
-      tileBase = base;
-      fgColor = DEFAULT_FOREGROUND_COLOR;
-      bgColor = DEFAULT_FLOOR_COLOR;
+      setTileBase(base);
+      setFGColor(DEFAULT_FOREGROUND_COLOR);
+      setBGColor(bgColor = DEFAULT_FLOOR_COLOR);
       if(tileBase == TileBase.NULL || tileBase == TileBase.VOID)
-         bgColor = DEFAULT_BACKGROUND_COLOR;
+         setBGColor(DEFAULT_BACKGROUND_COLOR);
    }   
    
    // copy constructor
    public MapTile(MapTile that)
    {
-      this.tileBase = that.getTileBase();
-      this.fgColor = that.getFGColor();
-      this.bgColor = that.getBGColor();
+      setTileBase(that.getTileBase());
+      setFGColor(that.getFGColor());
+      setBGColor(that.getBGColor());
    }
    
    // TileBase calls

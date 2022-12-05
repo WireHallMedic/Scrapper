@@ -41,8 +41,7 @@ public class InventoryPanel extends TextPanel
    
    private void writeItem(int x, int y, Item item)
    {
-      UnboundTile sprite = item.getSprite();
-      setTile(x, y, sprite.getIconIndex(), sprite.getFGColor(), sprite.getBGColor());
+      setTile(x, y, item.getIconIndex(), item.getFGColor(), item.getBGColor());
       write(x + 2, y, item.getName(), 25, 1);
    }
 }

@@ -35,4 +35,10 @@ public class ToggleTile extends MapTile implements MapConstants
       else
          activeState = aState;
    }
+   
+   @Override
+   public int getIconIndex()
+   {
+      return activeState.getIconIndex();
+   }
 }

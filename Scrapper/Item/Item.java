@@ -2,30 +2,37 @@ package Scrapper.Item;
 
 import WidlerSuite.*;
 import Scrapper.GUI.*;
+import java.awt.*;
 
-public class Item implements ItemConstants
+public class Item implements ItemConstants, STileObject, GUIConstants
 {
-	private UnboundTile sprite;
 	private String name;
 	private QuestItem questItemTag;
+	private int iconIndex;
+	private Color fgColor;
+	private Color bgColor;
 
 
-	public UnboundTile getSprite(){return sprite;}
 	public String getName(){return name;}
-	public boolean isQuestItem(){return questItemTag != null;}
 	public QuestItem getQuestItemTag(){return questItemTag;}
+	public int getIconIndex(){return iconIndex;}
+	public Color getFGColor(){return fgColor;}
+	public Color getBGColor(){return bgColor;}
 
 
-	public void setSprite(UnboundTile s){sprite = s;}
 	public void setName(String n){name = n;}
 	public void setQuestItemTag(QuestItem q){questItemTag = q;}
+	public void setIconIndex(int i){iconIndex = i;}
+	public void setFGColor(Color f){fgColor = f;}
+	public void setBGColor(Color b){bgColor = b;}
 
 
    public Item()
    {
-      sprite = new UnboundTile(TileManager.x2y2Palette);
       name = "Unknown Item";
-      sprite.setIconIndex('?');
+      setIconIndex('?');
+      setFGColor(DEFAULT_FOREGROUND_COLOR);
+      setBGColor(DEFAULT_BACKGROUND_COLOR);
       questItemTag = null;
    }
    
@@ -33,6 +40,8 @@ public class Item implements ItemConstants
    {
       this();
       setName(name);
-      getSprite().setIconIndex(iconIndex);
+      setIconIndex(iconIndex);
    }
+   
+   public boolean isQuestItem(){return getQuestItemTag() != null;}
 }
