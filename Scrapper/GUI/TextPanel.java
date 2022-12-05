@@ -15,4 +15,13 @@ public class TextPanel extends RogueTilePanel implements GUIConstants
       setSize(parent.getWidth(), parent.getHeight());
       setVisible(true);
    }
+   
+   public void clear()
+   {
+      for(int x = 0; x < TEXT_PANEL_TILES_WIDE; x++)
+      for(int y = 0; y < TILES_HIGH; y++)
+      {
+         setTile(x, y, ' ', DEFAULT_FOREGROUND_COLOR.getRGB(), DEFAULT_BACKGROUND_COLOR.getRGB());
+      }
+   }
 }

@@ -9,6 +9,9 @@ public class Inventory implements ItemConstants
    private Vector<Item> itemList;
    private Vector<Item> questItemList;
    
+   public Vector<Item> getItemList(){return itemList;}
+   public Vector<Item> getQuestItemList(){return questItemList;}
+   
    public Inventory(SActor s)
    {
       self = s;
