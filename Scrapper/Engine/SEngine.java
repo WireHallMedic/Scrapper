@@ -14,10 +14,10 @@ public class SEngine
    private static SActor player = null;
    private static Zone curZone = null;
    private static Vector<SActor> actorList = new Vector<SActor>();
-   private int curActorIndex = 0;
+   private static int curActorIndex = 0;
    private static SFullPanel fullPanel = null;
    private static int uniqueIDIndex = 0;
-   private static Vector<Zone> zoneList = new Vector<Zone>();
+   private static Vector<ZonePackage> zonePackList = new Vector<ZonePackage>();
    
    public static SquirrelRNG rng = new SquirrelRNG();
    
@@ -47,7 +47,7 @@ public class SEngine
    
    public static void add(Zone z)
    {
-      zoneList.add(z);
+      zonePackList.add(new ZonePackage(z));
    }
    
    public static void remove(SActor actor)
@@ -92,22 +92,36 @@ public class SEngine
    
    public static void useExit(int pathNum)
    {
+      ZonePackage destZonePack = null;
       Zone destZone = null;
       // find other map with matching exit
-      for(Zone z : zoneList)
+      for(ZonePackage zp : zonePackList)
       {
+         Zone z = zp.getZone();
          if(z != getCurZone() && z.hasExit(pathNum))
          {
             destZone = z;
+            destZonePack = zp;
             break;
          }
       }
-      if(destZone != null)
+      if(destZonePack != null)
       {
-         getPlayer().setLoc(destZone.getExitLoc(pathNum));
-         setCurZone(destZone);
-         InfoPanel.addMessage("Now entering " + destZone.getName() + ".");
+         Coord entranceLoc = destZone.getExitLoc(pathNum);
+         changeZone(destZonePack, entranceLoc);
       }
+   }
+   
+   public static void changeZone(ZonePackage destZonePack, Coord destLoc)
+   {
+      Zone destZone = destZonePack.getZone();
+      getPlayer().setLoc(destLoc);
+      actorList.remove(getPlayer());
+      setActorList(destZonePack.getActorList());
+      actorList.add(getPlayer());
+      setCurZone(destZonePack.getZone());
+      curActorIndex = 0;
+      InfoPanel.addMessage("Now entering " + destZonePack.getZone().getName() + ".");
    }
    
    public void run()
