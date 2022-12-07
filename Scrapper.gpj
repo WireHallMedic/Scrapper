@@ -12,7 +12,7 @@ s#i0
 s#k0
 s#j0
 s#l0
-!3059;g
+!3099;g
 %\011%uWidlerSuite%sMovementScriptStep.java
 %\011%uWidlerSuite%sUnboundTile.java
 %\011Scrapper%sMap%sExitTile.java
@@ -71,6 +71,7 @@ s#l0
 %\011%uWidlerSuite%sAStar.java
 %\011%uWidlerSuite%sCoord.java
 %\011Scrapper%sMap%sMapTileFactory.java
+%\011Scrapper%sEngine%sZonePackage.java
 %\011%uWidlerSuite%sStraightLine.java
 %\011Scrapper%sGUI%sGUITools.java
 %\011Scrapper%sMap%sMapFactoryTools.java
@@ -96,7 +97,7 @@ s#l0
 %\011Scrapper%sAI%sBasicAI.java
 %\011%uWidlerSuite%sHexLine.java
 %\011Scrapper%sGUI%sTerminalPanel.java
-!3059;f
+!3099;f
 %\011%uWidlerSuite%sMovementScriptStep.java
 %\011%uWidlerSuite%sUnboundTile.java
 %\011Scrapper%sMap%sExitTile.java
@@ -155,6 +156,7 @@ s#l0
 %\011%uWidlerSuite%sAStar.java
 %\011%uWidlerSuite%sCoord.java
 %\011Scrapper%sMap%sMapTileFactory.java
+%\011Scrapper%sEngine%sZonePackage.java
 %\011%uWidlerSuite%sStraightLine.java
 %\011Scrapper%sGUI%sGUITools.java
 %\011Scrapper%sMap%sMapFactoryTools.java
