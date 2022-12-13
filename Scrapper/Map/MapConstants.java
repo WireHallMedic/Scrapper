@@ -58,6 +58,23 @@ public interface MapConstants
          x = _x;
          y = _y;
       }
+      
+      public Direction opposite()
+      {
+         switch(this)
+         {
+            case NORTH     : return SOUTH;
+            case NORTHEAST : return SOUTHWEST;
+            case EAST      : return WEST;
+            case SOUTHEAST : return NORTHWEST;
+            case SOUTH     : return NORTH;
+            case SOUTHWEST : return NORTHEAST;
+            case WEST      : return EAST;
+            case NORTHWEST : return SOUTHEAST;
+            case ORIGIN    : return ORIGIN;
+         }  
+         return null;
+      }
    }
    
    public enum Region

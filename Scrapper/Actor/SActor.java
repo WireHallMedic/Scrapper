@@ -90,6 +90,8 @@ public class SActor implements ActorConstants, AbilityConstants, ItemConstants, 
       return fov.isVisible(x - getX() + getVisionRadius(), y - getY() + getVisionRadius());
    }
    
+   public void setStep(
+   
    
    // temporary
    public int getX(){return sprite.getXLoc();}
