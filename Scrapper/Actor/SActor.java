@@ -101,6 +101,13 @@ public class SActor implements ActorConstants, AbilityConstants, ItemConstants, 
       updateFoV();
    }
    
+   public void stopAndCenter()
+   {
+      getSprite().setSpeed(0.0, 0.0);
+      getSprite().setXOffset(0.0);
+      getSprite().setYOffset(0.0);
+   }
+   
    private void updateFoV()
    {
       fov.reset(SEngine.getCurZone().getTransparencyArray(getX(), getY(), getVisionRadius()));

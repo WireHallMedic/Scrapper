@@ -41,6 +41,7 @@ public class MapPanel extends RogueTilePanel implements GUIConstants
          for(SActor actor : SEngine.getActorList())
          {
             addNonlocking(actor.getSprite());
+            actor.stopAndCenter();
          }
       }
       SActor player = SEngine.getPlayer();
