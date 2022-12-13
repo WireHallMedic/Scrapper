@@ -18,16 +18,19 @@ public class SEngine
    private static SFullPanel fullPanel = null;
    private static int uniqueIDIndex = 0;
    private static Vector<ZonePackage> zonePackList = new Vector<ZonePackage>();
+   private static TileAnimationManager animationManager = null;
    
    public static SquirrelRNG rng = new SquirrelRNG();
    
    public static void setPlayer(SActor p){player = p;}
    public static void setCurZone(Zone z){curZone = z;}
    public static void setActorList(Vector<SActor> al){actorList = al;}
+   public static void setAnimationManager(TileAnimationManager am){animationManager = am;}
    
    public static SActor getPlayer(){return player;}
    public static Zone getCurZone(){return curZone;}
    public static Vector<SActor> getActorList(){return actorList;}
+   public static TileAnimationManager getAnimationManager(){return animationManager;}
    
    
    public static int getUniqueID()

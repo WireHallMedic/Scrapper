@@ -145,12 +145,13 @@ public class BasicAI implements AbilityConstants, MapConstants, ItemConstants
    
    public void takeStep()
    {
-      int newX = self.getX();
-      int newY = self.getY();
-      newX += pendingDirection.x;
-      newY += pendingDirection.y;
-      self.setX(newX);
-      self.setY(newY);
+    //   int newX = self.getX();
+//       int newY = self.getY();
+//       newX += pendingDirection.x;
+//       newY += pendingDirection.y;
+//       self.setX(newX);
+//       self.setY(newY);
+      self.setStep(pendingDirection);
       reduceTurnEnergy(AbilityConstants.NORMAL_SPEED);
    }
    

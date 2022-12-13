@@ -2,6 +2,7 @@ package Scrapper.GUI;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 import java.util.*;
 import WidlerSuite.*;
 import Scrapper.Engine.*;
@@ -11,7 +12,7 @@ import Scrapper.Map.*;
    A standard JPanel so that the RogueTilePanels can stay a specific size
 */
 
-public class SFullPanel extends JPanel implements GUIConstants
+public class SFullPanel extends JPanel implements GUIConstants, ActionListener
 {
    private MainGamePanel mainGamePanel;
    private TerminalPanel terminalPanel;
@@ -72,5 +73,13 @@ public class SFullPanel extends JPanel implements GUIConstants
          else
             panelElement.setVisible(false);
       }
+   }
+   
+   // timer kick
+   public void actionPerformed(ActionEvent ae)
+   {
+      mainGamePanel.actionPerformed(ae);
+      terminalPanel.actionPerformed(ae);
+      inventoryPanel.actionPerformed(ae);
    }
 }

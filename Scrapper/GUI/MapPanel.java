@@ -20,6 +20,8 @@ public class MapPanel extends RogueTilePanel implements GUIConstants
       setSizeMultiplier(DEFAULT_TILE_SIZE_MULTIPLIER);
       int sizePixels = MAP_PANEL_SIZE_TILES * DEFAULT_TILE_SIZE;
       setSize(sizePixels, sizePixels);
+      SEngine.setAnimationManager(animationManager);
+      setBackground(Color.BLACK);
       setVisible(true);
    }
    
@@ -58,8 +60,8 @@ public class MapPanel extends RogueTilePanel implements GUIConstants
       }
       
       // draw map
-      int cornerX = player.getX() - MAP_PANEL_CENTER;
-      int cornerY = player.getY() - MAP_PANEL_CENTER;
+      int cornerX = player.getTrueLoc().x - MAP_PANEL_CENTER;
+      int cornerY = player.getTrueLoc().y - MAP_PANEL_CENTER;
       for(int x = 0; x < MAP_PANEL_SIZE_TILES; x++)
       for(int y = 0; y < MAP_PANEL_SIZE_TILES; y++)
       {
@@ -93,5 +95,8 @@ public class MapPanel extends RogueTilePanel implements GUIConstants
          }
          setTile(x, y, iconIndex, fgColor, bgColor);
       }
+      double xScroll = -(player.getSprite().getXOffset());
+      double yScroll = -(player.getSprite().getYOffset());
+      setScroll(xScroll, yScroll);
    }
 }

@@ -46,6 +46,7 @@ public class SFrame extends JFrame implements GUIConstants, MapConstants, Abilit
    // timer kick
    public void actionPerformed(ActionEvent ae)
    {
+      fullPanel.actionPerformed(ae);
       innerPanel.repaint();
    }
    

@@ -3,8 +3,9 @@ package Scrapper.GUI;
 import WidlerSuite.*;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
-public class MainGamePanel extends JPanel implements GUIConstants
+public class MainGamePanel extends JPanel implements GUIConstants, ActionListener
 {
    private SFullPanel parent;
    private CharacterPanel characterPanel;
@@ -54,5 +55,11 @@ public class MainGamePanel extends JPanel implements GUIConstants
       this.add(infoPanel);
       infoPanel.setVisible(true);
       
+   }
+   
+   // timer kick
+   public void actionPerformed(ActionEvent ae)
+   {
+      mapPanel.actionPerformed(ae);
    }
 }

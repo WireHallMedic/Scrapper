@@ -32,7 +32,7 @@ public class ScrapperMain
          for(Zone z : zoneList)
             SEngine.add(z);
          SEngine.add(player);
-         //SEngine.add(SActor.getMockEnemy());
+         SEngine.add(SActor.getMockEnemy());
          SEngine.add(SActor.getMockEnemy2());
          
          SEngine.setCurZone(zoneList.elementAt(0));
