@@ -93,17 +93,5 @@ public class MapPanel extends RogueTilePanel implements GUIConstants
          }
          setTile(x, y, iconIndex, fgColor, bgColor);
       }
-      /*
-      // actors
-      for(SActor actor : actorList)
-      {
-         UnboundTile actorTile = actor.getSprite();
-         if(player.canSee(actor.getX(), actor.getY()))
-         {
-            int x = (actor.getX() - cornerX) * 
-            g2d.drawImage(imageArr[x][y], (x * w) + totalXInset, (y * h) + totalYInset, this);
-            setTile(actor.getX() - cornerX, actor.getY() - cornerY, actorTile.getIconIndex(), actorTile.getFGColor(), actorTile.getBGColor());
-         }
-      }*/
    }
 }
