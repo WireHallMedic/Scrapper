@@ -36,6 +36,7 @@ public class ScrapperMain
          SEngine.add(SActor.getMockEnemy2());
          
          SEngine.setCurZone(zoneList.elementAt(0));
+         MapPanel.updateActors();
          //SEngine.setCurZone(MapFactory.getTestingZone());
          
       }

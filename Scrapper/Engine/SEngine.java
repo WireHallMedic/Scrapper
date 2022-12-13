@@ -120,6 +120,7 @@ public class SEngine
       setActorList(destZonePack.getActorList());
       actorList.add(getPlayer());
       setCurZone(destZonePack.getZone());
+      MapPanel.updateActors();
       curActorIndex = 0;
       InfoPanel.addMessage("Now entering " + destZonePack.getZone().getName() + ".");
    }
