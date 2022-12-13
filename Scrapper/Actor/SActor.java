@@ -6,8 +6,9 @@ import Scrapper.GUI.*;
 import Scrapper.Item.*;
 import Scrapper.Engine.*;
 import Scrapper.Ability.*;
+import java.awt.*;
 
-public class SActor implements ActorConstants, AbilityConstants, ItemConstants
+public class SActor implements ActorConstants, AbilityConstants, ItemConstants, GUIConstants
 {
 	protected UnboundTile sprite;
    protected boolean flies;
@@ -35,7 +36,7 @@ public class SActor implements ActorConstants, AbilityConstants, ItemConstants
 
    public SActor()
    {
-      sprite = new UnboundTile(TileManager.x2y2Palette);
+      setSprite('?', DEFAULT_FOREGROUND_COLOR.getRGB(), DEFAULT_BACKGROUND_COLOR.getRGB());
       flies = false;
       swims = false;
       visionRadius = DEFAULT_VISION_RADIUS;
@@ -44,6 +45,12 @@ public class SActor implements ActorConstants, AbilityConstants, ItemConstants
       ai = new BasicAI(this);
       takingTurn = false;
       inventory = new Inventory(this);
+   }
+   
+   public void setSprite(int tileIndex, int fgColor, int bgColor)
+   {
+      sprite = TileManager.x2y2Palette.getUnboundTile(tileIndex, fgColor, 
+               bgColor, DEFAULT_TILE_SIZE_MULTIPLIER, UnboundTile.CIRCLE_BACKGROUND);
    }
    
    public boolean isPlayer()
@@ -85,7 +92,6 @@ public class SActor implements ActorConstants, AbilityConstants, ItemConstants
    
    
    // temporary
-   public int getIconIndex(){return sprite.getIconIndex();}
    public int getX(){return sprite.getXLoc();}
    public int getY(){return sprite.getYLoc();}
    public void setX(int x){sprite.setXLoc(x);}
@@ -95,10 +101,9 @@ public class SActor implements ActorConstants, AbilityConstants, ItemConstants
    public static SActor getMock()
    {
       SActor a = new SActor();
+      a.setSprite('@', PRIMARY_COLOR.getRGB(), Color.BLACK.getRGB());
       a.sprite.setXLoc(2);
       a.sprite.setYLoc(2);
-      a.sprite.setIconIndex('@');
-      a.sprite.setFGColor(GUIConstants.PRIMARY_COLOR.getRGB());
       a.setAI(new PlayerAI(a));
       return a;
    }
@@ -106,20 +111,18 @@ public class SActor implements ActorConstants, AbilityConstants, ItemConstants
    public static SActor getMockEnemy()
    {
       SActor a = new SActor();
+      a.setSprite('e', SECONDARY_COLOR.getRGB(), Color.BLACK.getRGB());
       a.sprite.setXLoc(-2);
       a.sprite.setYLoc(2);
-      a.sprite.setIconIndex('e');
-      a.sprite.setFGColor(GUIConstants.SECONDARY_COLOR.getRGB());
       return a;
    }
    
    public static SActor getMockEnemy2()
    {
       SActor a = new SActor();
+      a.setSprite('e', TERTIARY_COLOR.getRGB(), Color.BLACK.getRGB());
       a.sprite.setXLoc(2);
       a.sprite.setYLoc(5);
-      a.sprite.setIconIndex('e');
-      a.sprite.setFGColor(GUIConstants.TERTIARY_COLOR.getRGB());
       return a;
    }
 }
